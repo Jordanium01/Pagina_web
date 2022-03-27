@@ -47,6 +47,24 @@ h1 {
 }
 
 
+/*Animacion de fundido en el main*/
+
+main {
+    animation: fadeInAnimation ease 0.8s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
 /*---Publicaciones---*/
 
 
@@ -77,7 +95,7 @@ h1 {
 
 .post {
     width: 98%;
-    float: center;
+    /*float: center;*/
     height: auto;
     /*Que el texto no se salga del contenedor*/
     overflow: hidden;
@@ -103,20 +121,26 @@ h1 {
     text-decoration: none;
 }
 
+
+/*Imagenes de la publicacion*/
+
 .img-post {
     float: left;
     margin-top: 20px;
-    width: 300px;
-    height: 250px;
+    width: 320px;
+    height: 240px;
     /*margin: arriba / derecha / abajo / izquierda*/
     margin: 7px 40px 8px 0px;
     padding: 5px;
     border-radius: 40px;
 }
 
+
+/*
 .img-post:hover {
     scale: 110%;
 }
+*/
 
 
 /*---Cabecera---*/
@@ -138,37 +162,6 @@ header a {
     text-decoration: none;
 }
 
-
-/*Solo el menu*/
-
-
-/*
-#menu ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-#menu ul li {
-    display: inline-block;
-}
-
-
-/*Trasformar cada opcion del menu en un bloque*/
-
-
-/*
-#menu ul li a {
-    display: block;
-    padding: 0.5rem 1rem;
-    transition: all 0.2s;
-    /*bordear el bloquecito*/
-
-
-/*
-border-radius: 5px;
-
-}
 
 /*Al pasar el mouse por encima de cada bloque*/
 
@@ -203,11 +196,28 @@ footer {
 .foot-izq {
     text-align: left;
     float: left;
+    /*Para que no colisionen las letras por salto de linea*/
+    line-height: 1rem;
 }
 
 .foot-der {
     text-align: right;
-    float: right;
+    /*float: right;*/
+}
+
+.foot-der img {
+    padding: 20px;
+    /*
+    text-align: right;
+    
+    */
+    text-decoration: none;
+    width: 10%;
+    min-width: 64px;
+}
+
+.foot-der img:hover {
+    opacity: 0.6;
 }
 
 
@@ -252,26 +262,25 @@ form textarea {
     background-color: #BC6F29;
     color: #fff;
     padding: 20px;
-    border: 1;
+    /*border: 3px */
     border-radius: 5px;
+}
+
+
+/*Validar espacios*/
+
+form input:required:not(:placeholder-shown):valid {
+    border: 2px solid rgb(64, 202, 22);
+}
+
+form input:required:not(:placeholder-shown):invalid {
+    border: 2px solid rgb(214, 9, 9);
 }
 
 
 /*Hacer que el menu se adapte a la resolucion y cambie*/
 
 @media only screen and (max-width: 767px) {
-    /*
-    .menu-icon {
-        display: block;
-        /*clicleable
-        cursor: pointer;
-        list-style: none;
-        padding: 10px 10px 0px 0px;
-        text-decoration: none;
-        font-family: Arial, Helvetica, sans-serif;
-        float: right;
-    }
-    */
     main img {
         /*imagenes responsivas*/
         width: 100%;
@@ -282,55 +291,10 @@ form textarea {
         width: 100%;
         height: auto;
     }
-    /*
-    #h-menu {
-        border: 1px solid;
-        border-color: var(--header-color);
-        /*tamaño de la caja: top-bottom / right-left
-        border-width: 22px medium;
-        font-size: 27px;
-    }
-    #h-menu:hover {
-        border-color: var(--header-color);
-    }
-    .menu-icon ul li a:hover {
-        background-color: #BC6F29;
-        border-radius: 5px;
-        border-width: 100px;
-    }
-    .menu-icon li:hover .submenu-icon {
-        visibility: visible;
-    }
-    .submenu-icon {
-        position: absolute;
-        background-color: var(--header-color);
-        padding: 0px;
-        width: 130%;
-        list-style: none;
-        visibility: hidden;
-    }
-    .submenu-icon li a {
-        display: block;
-        padding: 10px 10px 0px 0px;
-        text-decoration: none;
-    }
-    #menu {
-        width: 100%;
-        margin-top: 1rem;
-    }
-    #menu ul {
-        display: none;
-    }
-    */
     header a {
         color: #FCFCFC;
         text-decoration: none;
-        text-align: top;
-    }
-    /*
-    .navega-cont {
-        /*Mandar un objeto abajo si supera el ancho
-        flex-wrap: wrap;
+        /*text-align: top;*/
     }
     /*Trasformar cada opcion del menu en un bloque*/
     /*Cambiar pagina de contacto*/

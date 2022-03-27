@@ -1,6 +1,8 @@
+/*
 .navbar img {
     align-items: top;
 }
+*/
 
 .navbar-light {
     --header-color: #df98ab;
@@ -25,10 +27,19 @@
 
 .carousel {
     width: 60%;
-    height: auto;
     margin-left: 20%;
     margin-right: 20%;
 }
+
+
+/*
+.carousel-item img {
+    /*Que todas las imagenes del carrusel tengan el mismo alto*/
+
+
+/* heigh/*
+}
+*/
 
 
 /*
