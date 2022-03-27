@@ -260,18 +260,6 @@ form textarea {
 /*Hacer que el menu se adapte a la resolucion y cambie*/
 
 @media only screen and (max-width: 767px) {
-    /*
-    .menu-icon {
-        display: block;
-        /*clicleable
-        cursor: pointer;
-        list-style: none;
-        padding: 10px 10px 0px 0px;
-        text-decoration: none;
-        font-family: Arial, Helvetica, sans-serif;
-        float: right;
-    }
-    */
     main img {
         /*imagenes responsivas*/
         width: 100%;
