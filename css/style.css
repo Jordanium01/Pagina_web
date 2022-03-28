@@ -140,6 +140,151 @@ main {
 }
 
 
+/*----Pagina de proyectos----*/
+
+.img-proyect {
+    margin-bottom: 20px;
+    margin-left: 20%;
+    margin-right: 20%;
+    width: 60%;
+    height: auto;
+}
+
+
+/*----Pagina quienes somos----*/
+
+.about-tittle {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.about_logo {
+    width: 20%;
+    height: auto;
+    margin-left: 40%;
+    margin-right: 40%;
+}
+
+.equipo {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.miembro {
+    width: 98%;
+    /*float: center;*/
+    height: auto;
+    /*Que el texto no se salga del contenedor*/
+    overflow: hidden;
+    padding: 7px;
+    border-left-width: 5px;
+    border-radius: 10px;
+}
+
+.miembro>p {
+    /*Tamaño maximo del contenedor*/
+    font-size: 16px;
+    font-weight: 300;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-break: auto;
+}
+
+.miembro>h2,
+.miembro>h4 {
+    text-align: center;
+    margin-right: 15%;
+}
+
+
+/*Imagenes de la publicacion*/
+
+.img_miembro {
+    float: left;
+    margin-top: 20px;
+    width: 80%;
+    height: auto;
+    /*margin: arriba / derecha / abajo / izquierda*/
+    margin: 7px 40px 8px 0px;
+    padding: 5px;
+    border-radius: 80px;
+}
+
+
+/*----Pagina de contacto----*/
+
+form {
+    width: 450px;
+    margin: auto;
+    background: var(--form-background);
+    padding: 10px 20px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+form h1 {
+    font-family: monospace;
+    color: var(--color-black);
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+form input,
+textarea {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 8px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+form textarea {
+    color: var(--color-black);
+    min-height: 100px;
+    max-height: 300px;
+    max-width: 100%;
+}
+
+#form-boton {
+    background-color: var(--color-orange);
+    color: var(--color-white);
+    padding: 20px;
+    /*border: 3px */
+    border-radius: 5px;
+}
+
+
+/*Validar espacios*/
+
+form input:required:not(:placeholder-shown):valid {
+    border: 2px solid #40ca16;
+}
+
+form input:required:not(:placeholder-shown):invalid {
+    border: 2px solid #d60909;
+}
+
+
+/*----Pagina de FAQ----*/
+
+.faq>h3 {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40px;
+}
+
+.faq>p {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+
 /*---Cabecera---*/
 
 header {
@@ -214,63 +359,6 @@ footer {
 }
 
 
-/*----Pagina de contacto----*/
-
-form {
-    width: 450px;
-    margin: auto;
-    background: var(--form-background);
-    padding: 10px 20px;
-    box-sizing: border-box;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-}
-
-form h1 {
-    font-family: monospace;
-    color: var(--color-black);
-    text-align: center;
-    font-size: 40px;
-    margin-bottom: 20px;
-}
-
-form input,
-textarea {
-    width: 100%;
-    margin-bottom: 20px;
-    padding: 8px;
-    box-sizing: border-box;
-    font-size: 15px;
-}
-
-form textarea {
-    color: var(--color-black);
-    min-height: 100px;
-    max-height: 300px;
-    max-width: 100%;
-}
-
-#form-boton {
-    background-color: var(--color-orange);
-    color: var(--color-white);
-    padding: 20px;
-    /*border: 3px */
-    border-radius: 5px;
-}
-
-
-/*Validar espacios*/
-
-form input:required:not(:placeholder-shown):valid {
-    border: 2px solid #40ca16;
-}
-
-form input:required:not(:placeholder-shown):invalid {
-    border: 2px solid #d60909;
-}
-
-
 /*Hacer que el menu se adapte a la resolucion y cambie*/
 
 @media only screen and (max-width: 767px) {
@@ -298,5 +386,18 @@ form input:required:not(:placeholder-shown):invalid {
     footer {
         width: 100%;
         margin-top: auto;
+    }
+    /*--Pagina quienes somos--*/
+    .equipo article {
+        grid-column: 1 / -1;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .img_miembro {
+        width: 60%;
+        height: auto;
+        margin-left: 15%;
+        margin-right: 25%;
+        margin-bottom: 10px;
     }
 }
