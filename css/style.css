@@ -8,12 +8,16 @@ https://developer.mozilla.org/es/docs/Learn/CSS/Building_blocks/Values_and_units
 
 body {
     /*Variables de colores*/
-    --header-color: #df98ab;
+    --header-color: #ff8fad;
+    --navbar-hover: #68e8ff;
+    --footer-color: #23272a;
+    --form-background: #4e4c4c;
+    --color-white: #ffffff;
+    --color-orange: #ffa339;
+    --color-black: #000000;
     /*Lo demas*/
-    background-color: #ebebeb;
-    /*#FCFCFC*/
     font-family: Georgia, 'Times New Roman', Times, serif;
-    color: #333;
+    color: var(--color-black);
     font-size: 1.2rem;
     /*interlineado*/
     line-height: 1.63em;
@@ -41,7 +45,7 @@ h1 {
 }
 
 .contenido {
-    width: 85%;
+    width: 90%;
     max-width: 1150px;
     margin: 0 auto;
 }
@@ -82,7 +86,7 @@ main {
 /*Titulo de las publicaciones*/
 
 #publicaciones a {
-    color: #BC6F29;
+    color: var(--color-orange);
     font-size: 22px;
     font-weight: 400;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -136,20 +140,13 @@ main {
 }
 
 
-/*
-.img-post:hover {
-    scale: 110%;
-}
-*/
-
-
 /*---Cabecera---*/
 
 header {
     background-color: var(--header-color);
     /*que flote hacia la izquierda*/
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #FCFCFC;
+    color: var(--color-white);
     /*altura*/
     height: 4rem;
 }
@@ -158,7 +155,7 @@ header {
 /*Links de la cabecera*/
 
 header a {
-    color: #FCFCFC;
+    color: var(--color-white);
     text-decoration: none;
 }
 
@@ -166,7 +163,7 @@ header a {
 /*Al pasar el mouse por encima de cada bloque*/
 
 #menu ul li a:hover {
-    background-color: #BC6F29;
+    background-color: var(--color-orange);
 }
 
 .main {
@@ -179,11 +176,11 @@ header a {
 
 footer {
     /*Que tenga los mismos colores que la cabecera*/
-    background-color: var(--header-color);
+    background-color: var(--footer-color);
     /*que flote hacia la izquierda*/
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 15px;
-    color: #FCFCFC;
+    color: var(--color-white);
     padding: 1rem 0;
     /*Para que el footer siempre se quede abajo*/
     margin-top: auto;
@@ -207,10 +204,6 @@ footer {
 
 .foot-der img {
     padding: 20px;
-    /*
-    text-align: right;
-    
-    */
     text-decoration: none;
     width: 10%;
     min-width: 64px;
@@ -226,7 +219,7 @@ footer {
 form {
     width: 450px;
     margin: auto;
-    background: rgba(0, 0, 0, 0.4);
+    background: var(--form-background);
     padding: 10px 20px;
     box-sizing: border-box;
     margin-top: 20px;
@@ -236,7 +229,7 @@ form {
 
 form h1 {
     font-family: monospace;
-    color: #000;
+    color: var(--color-black);
     text-align: center;
     font-size: 40px;
     margin-bottom: 20px;
@@ -252,15 +245,15 @@ textarea {
 }
 
 form textarea {
-    color: #000;
+    color: var(--color-black);
     min-height: 100px;
     max-height: 300px;
     max-width: 100%;
 }
 
 #form-boton {
-    background-color: #BC6F29;
-    color: #fff;
+    background-color: var(--color-orange);
+    color: var(--color-white);
     padding: 20px;
     /*border: 3px */
     border-radius: 5px;
@@ -270,11 +263,11 @@ form textarea {
 /*Validar espacios*/
 
 form input:required:not(:placeholder-shown):valid {
-    border: 2px solid rgb(64, 202, 22);
+    border: 2px solid #40ca16;
 }
 
 form input:required:not(:placeholder-shown):invalid {
-    border: 2px solid rgb(214, 9, 9);
+    border: 2px solid #d60909;
 }
 
 
@@ -292,7 +285,7 @@ form input:required:not(:placeholder-shown):invalid {
         height: auto;
     }
     header a {
-        color: #FCFCFC;
+        color: var(--color-white);
         text-decoration: none;
         /*text-align: top;*/
     }

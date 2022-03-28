@@ -1,11 +1,5 @@
-/*
-.navbar img {
-    align-items: top;
-}
-*/
-
 .navbar-light {
-    --header-color: #df98ab;
+    /*--header-color: #df98ab;*/
     background-color: var(--header-color);
     position: fixed;
     /*Darle una profundidad mas externa para que el carrusel no lo sobrepase*/
@@ -16,6 +10,16 @@
     top: 0;
     /*pegado a la derecha*/
     right: 0;
+}
+
+
+/*Poner un marco al navbar al seleccionar*/
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:focus {
+    display: block;
+    background-color: var(--navbar-hover);
+    border-radius: 5px;
 }
 
 .navbar-collapse {
@@ -29,87 +33,4 @@
     width: 60%;
     margin-left: 20%;
     margin-right: 20%;
-}
-
-
-/*
-.carousel-item img {
-    /*Que todas las imagenes del carrusel tengan el mismo alto*/
-
-
-/* heigh/*
-}
-*/
-
-
-/*
-.carousel-item {
-    width: 80%;
-    padding-left: 10%;
-    padding-right: 10%;
-    height: auto;
-    float: center;
-}
-
-.carousel .item img {
-    width: 80%;
-    padding-left: 10%;
-    padding-right: 10%;
-    height: auto;
-    float: center;
-}
-
-.container {
-    width: 80%;
-    padding-left: 10%;
-    padding-right: 10%;
-    height: auto;
-    float: center;
-}
-
-
-
-/*--Carrusel--
-
-.carousel-item {
-    width: 80vw;
-    margin-left: 10vw;
-    margin-right: 10vw;
-    height: auto;
-}
-
-.carousel-item-next {
-    width: 80vw;
-    margin-left: 10vw;
-    margin-right: 10vw;
-    height: auto;
-}
-
-.carousel {
-    width: 80vw;
-    padding-left: 10vw;
-    padding-right: 10vw;
-    height: auto;
-}
-
-
-.d-block {
-    width: 80vw;
-    padding-left: 10vw;
-    padding-right: 10vw;
-    height: auto;
-}
-
-.carousel-inner {
-    width: 80vw;
-    padding-left: 10vw;
-    padding-right: 10vw;
-    height: auto;
-}
-
-.carousel-caption {
-    width: 80vw;
-    padding-left: 10vw;
-    padding-right: 10vw;
-    height: auto;
 }
