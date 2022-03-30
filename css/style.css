@@ -217,7 +217,8 @@ main {
 /*----Pagina de contacto----*/
 
 form {
-    width: 450px;
+    /*Crear fondo para el formulario*/
+    width: 550px;
     margin: auto;
     background: var(--form-background);
     padding: 10px 20px;
@@ -228,6 +229,7 @@ form {
 }
 
 form h1 {
+    /*Titulo*/
     font-family: monospace;
     color: var(--color-black);
     text-align: center;
@@ -235,9 +237,103 @@ form h1 {
     margin-bottom: 20px;
 }
 
+.form_control textarea {
+    color: var(--color-black);
+    min-height: 100px;
+    max-height: 300px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.form_control {
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.form_control label {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.form_control input {
+    border: 2px solid var(--color-white);
+    border-radius: 4px;
+    display: block;
+    font-family: inherit;
+    font-size: 14px;
+    padding: 10px;
+    width: 100%;
+}
+
+.form_control input:focus {
+    outline: 0;
+    border-color: #777;
+}
+
+
+/*Cambiar los bordes*/
+
+.form_control.error input,
+.form_control.error textarea {
+    border-color: #d60909;
+}
+
+.form_control.success input,
+.form_control.success textarea {
+    border-color: #2ecc71;
+}
+
+.form_control i {
+    visibility: hidden;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+}
+
+.form_control.success i.fa-check-circle {
+    color: #2ecc71;
+    visibility: visible;
+}
+
+.form_control.error i.fa-exclamation-circle {
+    color: #d60909;
+    visibility: visible;
+}
+
+
+/*Mensaje de error*/
+
+.form_control small {
+    color: #d60909;
+    position: absolute;
+    bottom: 1;
+    left: 0;
+    visibility: hidden;
+}
+
+.form_control.error small {
+    visibility: visible;
+}
+
+.form_contacto button {
+    background-color: #ff8fad;
+    border: 2px solid #ff8fad;
+    border-radius: 4px;
+    color: var(--color-white);
+    display: block;
+    font-family: inherit;
+    font-size: 16px;
+    padding: 10px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+
+/*
 form input,
 textarea {
-    width: 100%;
+    width: 90%;
     margin-bottom: 20px;
     padding: 8px;
     box-sizing: border-box;
@@ -255,18 +351,26 @@ form textarea {
     background-color: var(--color-orange);
     color: var(--color-white);
     padding: 20px;
-    /*border: 3px */
-    border-radius: 5px;
+    
+
+border-radius: 5px;
+
 }
+*/
 
 
-/*Validar espacios*/
+/*-Validar espacios- con CSS en tiempo real*/
 
-form input:required:not(:placeholder-shown):valid {
+
+/*Bordes*/
+
+form input:required:not(:placeholder-shown):valid,
+textarea:required:not(:placeholder-shown):valid {
     border: 2px solid #40ca16;
 }
 
-form input:required:not(:placeholder-shown):invalid {
+form input:required:not(:placeholder-shown):invalid,
+textarea:required:not(:placeholder-shown):invalid {
     border: 2px solid #d60909;
 }
 
