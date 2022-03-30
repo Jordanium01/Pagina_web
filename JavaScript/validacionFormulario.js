@@ -12,11 +12,11 @@ form.addEventListener('submit', e => {
 });
 
 function checkInputs() {
-    const nombreValue = nombre.value.trim();
-    const emailValue = email.value.trim();
-    const asuntoValue = asunto.value.trim();
-    const mensajeValue = mensaje.value.trim();
-
+    var nombreValue = nombre.value.trim();
+    var emailValue = email.value.trim();
+    const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    var asuntoValue = asunto.value.trim();
+    var mensajeValue = mensaje.value.trim();
     //const emailValue = email.Value.trim();
     //Validar que los campos no esten vacios
     if (nombreValue === '') {
@@ -27,10 +27,10 @@ function checkInputs() {
 
     if (emailValue === '') {
         setErrorFor(email, 'No puede dejar su correo en blanco');
-    } else if (!isEmail(emailValue)) {
+    } else if (!emailRegex.test(emailValue)) { //if (!emailRegex.test(emailValue)) { //isEmail(emailValue)
         setErrorFor(email, 'No ingreso un email válido');
     } else {
-        setSuccessFor(email);
+        setSuccesFor(email);
     }
 
     if (asuntoValue === '') {
@@ -55,13 +55,8 @@ function setErrorFor(input, message) /*ID input, mensaje a mostrar*/ {
     small.innerText = message;
 }
 
-
+//Mostrar el check
 function setSuccesFor(input) {
     const formControl = input.parentElement;
     formControl.className = 'form_control success';
-}
-
-//Validar email
-function isEmail(email) {
-    return /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/.text(email);
 }
