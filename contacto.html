@@ -9,8 +9,11 @@
     <link rel="icon" href="img/favicon.png" type="image/png" />
     <!--Boostrap 4.3.1-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--CSS-->
     <link type="text/css" rel="stylesheet" href="css/style.css" />
     <link type="text/css" rel="stylesheet" href="css/custom-boostrap.css" />
+    <!--Fuentes-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" />
 </head>
 
 <body>
@@ -47,15 +50,50 @@
     <main class="main">
         <div class="contenido">
             <!--EL get va a la base de datos, el POST no-->
-            <form action="#" method="POST">
+            <form id="form_contacto" class="form_contacto">
                 <h1>Contactanos</h1>
-                <!--El pattern valida que solo pueda tener mayusculas, minusculas y espacios, mas de 2 caracteres-->
-                <input type="text" name="nombre" placeholder="Ingresa tu nombre" pattern="[A-Zaz ].{2,}" required>
-                <!--Este pattern valida que pueda tener numeros y letras minusculas en la primer [], que tenga un @, despues la misma valicacion [], que tenga un "." antes de lo ultimo-->
-                <input type="email" name="correo" placeholder="Ingresa tu correo" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
-                <input type="text" name="asunto" placeholder="Ingresa el asunto">
-                <textarea name="mensaje" placeholder="Ingrese su mensaje"> </textarea>
-                <input type="button" name="enviar" value="Enviar consulta" id="form-boton">
+
+                <!--nombre-->
+                <div class="form_control" action="">
+                    <label for="name">Nombre</label>
+                    <input type="text" placeholder="Tu nombre" id="form_name" />
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
+
+                <!--correo-->
+                <div class="form_control">
+                    <label for="email">Email</label>
+                    <input type="email" placeholder="Tu correo" id="form_email" />
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
+
+
+
+                <!--asunto-->
+                <div class="form_control" action="">
+                    <label for="business">Asunto</label>
+                    <input type="text" placeholder="El asunto" id="form_asunto" />
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
+
+                <!--mensaje-->
+                <div class="form_control" action="">
+                    <label for="message"></label>
+                    <!-- <input type="text" placeholder="Ingresa el mensaje" id="form_message" /> -->
+                    <small>Error message</small>
+                    <textarea name="mensaje" placeholder="Ingresa el mensaje" id="form_message"></textarea>
+                    <!--<i class="fas fa-check-circle"></i> -->
+                    <i class="fas fa-exclamation-circle"></i>
+
+                </div>
+                <!--boton-->
+                <button>Enviar</button>
             </form>
         </div>
     </main>
@@ -71,16 +109,16 @@
 
             <div class="foot-der">
                 <!--Twitter-->
-                <a href="#">
-                    <img src="img/footer-twitter.png" alt="Twitter">
+                <a href="https://twitter.com">
+                    <img src="img/footer_twitter.png" alt="Twitter">
                 </a>
                 <!--Youtube-->
-                <a href="#">
-                    <img src="img/footer-youtube.png" alt="Youtube">
+                <a href="https://youtube.com">
+                    <img src="img/footer_youtube.png" alt="Youtube">
                 </a>
                 <!--Discord-->
-                <a href="#">
-                    <img src="img/footer-discord.png" alt="Discord">
+                <a href="https://discord.com">
+                    <img src="img/footer_discord.png" alt="Discord">
                 </a>
             </div>
         </div>
@@ -90,7 +128,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+    <!--formulario-->
+    <script src="JavaScript/validacionFormulario.js"></script>
 </body>
 
 </html>
