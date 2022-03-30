@@ -19,7 +19,6 @@ body {
     --color-success: #00ff00;
     /*Lo demas*/
     font-family: Georgia, 'Times New Roman', Times, serif;
-    color: var(--color-black);
     font-size: 1.2rem;
     /*interlineado*/
     line-height: 1.63em;
@@ -315,7 +314,7 @@ form h1 {
 .form_control small {
     color: var(--color-error);
     position: absolute;
-    bottom: 1;
+    /*bottom: 1;*/
     left: 0;
     visibility: hidden;
 }
