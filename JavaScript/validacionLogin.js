@@ -1,8 +1,6 @@
-const form = document.getElementById('form_contacto');
-const nombre = document.getElementById('form_name');
+const form = document.getElementById('form_login');
 const email = document.getElementById('form_email');
-const asunto = document.getElementById('form_asunto');
-const mensaje = document.getElementById('form_message');
+const password = document.getElementById('form_password');
 
 
 form.addEventListener('submit', e => {
@@ -12,19 +10,11 @@ form.addEventListener('submit', e => {
 });
 
 function checkInputs() {
-    var nombreValue = nombre.value.trim();
     var emailValue = email.value.trim();
     const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    var asuntoValue = asunto.value.trim();
-    var mensajeValue = mensaje.value.trim();
-    //const emailValue = email.Value.trim();
-    //Validar que los campos no esten vacios
-    if (nombreValue === '') {
-        setErrorFor(nombre, 'No puede dejar su nombre en blanco');
-    } else {
-        setSuccesFor(nombre);
-    }
+    var PasswordValue = password.value.trim();
 
+    //Validar que los campos no esten vacios
     if (emailValue === '') {
         setErrorFor(email, 'No puede dejar su correo en blanco');
     } else if (!emailRegex.test(emailValue)) { //if (!emailRegex.test(emailValue)) { //isEmail(emailValue)
@@ -33,21 +23,15 @@ function checkInputs() {
         setSuccesFor(email);
     }
 
-    if (asuntoValue === '') {
-        setErrorFor(asunto, 'No puede dejar el asunto en blanco');
+    if (PasswordValue === '') {
+        setErrorFor(password, 'No puede dejar la contraseña blanco');
     } else {
-        setSuccesFor(asunto);
+        setSuccesFor(password);
     }
 
-    if (mensajeValue === '') {
-        setErrorFor(mensaje, 'No puede dejar el mensaje en blanco');
-    } else {
-        setSuccesFor(mensaje);
-    }
 }
 
 //Mostrar el error
-
 function setErrorFor(input, message) /*ID input, mensaje a mostrar*/ {
     const formControl = input.parentElement;
     const small = formControl.querySelector('small');

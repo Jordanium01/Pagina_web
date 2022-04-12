@@ -6,15 +6,25 @@ https://developer.mozilla.org/es/docs/Learn/CSS/Building_blocks/Values_and_units
 
 /*----Global----*/
 
+
+/*Cabecera*/
+
+.nav_button {
+    display: -ms-flexbox;
+    display: flex;
+}
+
 body {
     /*Variables de colores*/
     --header-color: #ff8fad;
-    --navbar-hover: #68e8ff;
+    --navbar-hover: #1f79ff;
+    --navbar-hover-trasnparent: rgba(104, 232, 255, 0.712);
     --footer-color: #23272a;
-    --form-background: #4e4c4c;
+    --form-background: #474747b0;
     --color-white: #ffffff;
     --color-orange: #ffa339;
     --color-black: #000000;
+    --color-shadow:  rgba(0, 0, 0, 0.5);
     --color-error: #ff1d1d;
     --color-success: #00ff00;
     /*Lo demas*/
@@ -215,7 +225,7 @@ main {
 }
 
 
-/*----Pagina de contacto----*/
+/*----Ajuste global para formularios----*/
 
 form {
     /*Crear fondo para el formulario*/
@@ -225,7 +235,7 @@ form {
     padding: 10px 20px;
     box-sizing: border-box;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     border-radius: 5px;
 }
 
@@ -234,14 +244,17 @@ form h1 {
     font-family: monospace;
     color: var(--color-black);
     text-align: center;
-    font-size: 40px;
-    margin-bottom: 20px;
+    font-size: 30px;
+    margin-bottom: 0px;
 }
 
 .form_control label {
     font-family: monospace;
     color: var(--color-black);
-    font-size: 20px;
+    font-size: 18px;
+    margin-bottom: 0px;
+    display: inline-block;
+    margin-bottom: 5px;
 }
 
 .form_control textarea {
@@ -253,14 +266,9 @@ form h1 {
 }
 
 .form_control {
-    margin-bottom: 10px;
+    /*margin-bottom: 10px;*/
     padding-bottom: 20px;
     position: relative;
-}
-
-.form_control label {
-    display: inline-block;
-    margin-bottom: 5px;
 }
 
 .form_control input {
@@ -271,6 +279,7 @@ form h1 {
     font-size: 14px;
     padding: 10px;
     width: 100%;
+    height: 40px;
 }
 
 .form_control input:focus {
@@ -332,7 +341,7 @@ form h1 {
     font-family: inherit;
     font-size: 16px;
     padding: 10px;
-    margin-top: 20px;
+    /*margin-top: 20px;*/
     width: 100%;
 }
 
@@ -350,6 +359,52 @@ textarea:required:not(:placeholder-shown):valid {
 form input:required:not(:placeholder-shown):invalid,
 textarea:required:not(:placeholder-shown):invalid {
     border: 2px solid var(--color-error);
+}
+
+
+/*Pagina de iniciar sesion*/
+
+.form_login button {
+    background-color: var(--color-orange);
+    border: 2px solid var(--color-orange);
+    border-radius: 4px;
+    color: var(--color-white);
+    display: block;
+    font-family: inherit;
+    font-size: 16px;
+    padding: 10px;
+    /*margin-top: 20px;*/
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.form_login {
+    margin-top: 10vh;
+}
+
+.form_login p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.form_login a {
+    color: var(--color-error);
+}
+
+
+/*Pagina de registrar cuenta*/
+
+.form_registro button {
+    background-color: var(--color-orange);
+    border: 2px solid var(--color-orange);
+    border-radius: 4px;
+    color: var(--color-white);
+    display: block;
+    font-family: inherit;
+    font-size: 16px;
+    padding: 10px;
+    /*margin-top: 20px;*/
+    width: 100%;
 }
 
 
