@@ -54,21 +54,22 @@
                 <h1>Inicia sesion</h1>
 
                 <!--correo-->
-                <div class="form_control">
+                <div class="form_control" id="form_control_email">
                     <label for="form_email">Email</label>
-                    <input type="email" placeholder="Tu correo" id="form_email" />
-                    <i class="fas fa-check-circle"></i>
-                    <i class="fas fa-exclamation-circle"></i>
-                    <small>Error message</small>
+                    <!-- La verificacion de html anula el script de verificacion-->
+                    <input type="text" placeholder="Tu correo" id="form_email" />
+                    <i id="I_correo_Succes" class="fas fa-check-circle"></i>
+                    <i id="I_correo_Error" class="fas fa-exclamation-circle"></i>
+                    <small id="errorCorreo">Error message</small>
                 </div>
 
                 <!--Contraseña-->
                 <div class="form_control">
                     <label for="form_password">Contraseña</label>
                     <input type="password" placeholder="El Contraseña" id="form_password" />
-                    <i class="fas fa-check-circle"></i>
-                    <i class="fas fa-exclamation-circle"></i>
-                    <small>Error message</small>
+                    <i id="I_pass_Succes" class="fas fa-check-circle"></i>
+                    <i id="I_pass_Error" class="fas fa-exclamation-circle"></i>
+                    <small id="errorPassw">Error message</small>
                 </div>
 
                 <p>¿No tienes cuenta?
@@ -76,7 +77,7 @@
                 </p>
 
                 <!--boton-->
-                <button>Iniciar sesion</button>
+                <button id="btnLogin" type="submit">Iniciar sesion</button>
             </form>
         </div>
     </main>
