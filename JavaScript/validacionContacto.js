@@ -28,7 +28,7 @@ function checkInputs() {
     if (emailValue === '') {
         setErrorFor(email, 'No puede dejar su correo en blanco');
     } else if (!emailRegex.test(emailValue)) { //if (!emailRegex.test(emailValue)) { //isEmail(emailValue)
-        setErrorFor(email, 'No ingreso un email válido');
+        setErrorFor(email, 'No ingreso un correo válido');
     } else {
         setSuccesFor(email);
     }

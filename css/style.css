@@ -24,7 +24,7 @@ body {
     --color-white: #ffffff;
     --color-orange: #ffa339;
     --color-black: #000000;
-    --color-shadow:  rgba(0, 0, 0, 0.5);
+    --color-shadow: rgba(0, 0, 0, 0.5);
     --color-error: #ff1d1d;
     --color-success: #00ff00;
     /*Lo demas*/
@@ -307,13 +307,19 @@ form h1 {
     right: 10px;
 }
 
-.form_control.success i.fa-check-circle {
+i.fa-check-circle {
     color: var(--color-success);
+}
+
+.form_control.success i.fa-check-circle {
     visibility: visible;
 }
 
-.form_control.error i.fa-exclamation-circle {
+i.fa-exclamation-circle {
     color: var(--color-error);
+}
+
+.form_control.error i.fa-exclamation-circle {
     visibility: visible;
 }
 
@@ -323,7 +329,6 @@ form h1 {
 .form_control small {
     color: var(--color-error);
     position: absolute;
-    /*bottom: 1;*/
     left: 0;
     visibility: hidden;
 }
@@ -343,6 +348,15 @@ form h1 {
     padding: 10px;
     /*margin-top: 20px;*/
     width: 100%;
+}
+
+
+/*Mensajes de error con jQuery*/
+
+.form_control span {
+    color: var(--color-error);
+    position: absolute;
+    left: 0;
 }
 
 
