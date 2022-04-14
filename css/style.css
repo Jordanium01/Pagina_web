@@ -17,8 +17,8 @@ https://developer.mozilla.org/es/docs/Learn/CSS/Building_blocks/Values_and_units
 body {
     /*Variables de colores*/
     --header-color: #ff8fad;
-    --navbar-hover: #1f79ff;
-    --navbar-hover-trasnparent: rgba(104, 232, 255, 0.712);
+    --navbar-hover: #2a7fff;
+    --navbar-hover-trasnparent: rgba(104, 152, 255, 0.712);
     --footer-color: #23272a;
     --form-background: #474747b0;
     --color-white: #ffffff;
@@ -402,7 +402,8 @@ textarea:required:not(:placeholder-shown):invalid {
 }
 
 .form_login a {
-    color: var(--color-error);
+    color: var(--color-white);
+    font-size: 20px;
 }
 
 
@@ -419,6 +420,11 @@ textarea:required:not(:placeholder-shown):invalid {
     padding: 10px;
     /*margin-top: 20px;*/
     width: 100%;
+}
+
+.form_registro p {
+    font-size: small;
+    text-align: center;
 }
 
 
