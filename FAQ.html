@@ -9,26 +9,26 @@
     <link rel="icon" href="img/favicon.png" type="image/png" />
     <!--Boostrap 4.3.1-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link type="text/css" rel="stylesheet" href="css/style.css" />
     <link type="text/css" rel="stylesheet" href="css/custom-boostrap.css" />
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
     <!--Cabecera con boostrap-->
     <!--Quite el bg-light, es un !important que define el fondo como blanco, el narbar-light es el color del texto para el tipo de pagina (light-negro / dark-blanco)-->
     <nav class="navbar navbar-expand-lg navbar-light  ">
-        <a class="navbar-brand" href="#"> <img width="64px" src="img/favicon.png" alt="Logo"> </a>
+        <img width="64" src="img/favicon.png" alt="Logo">
         <!--Menu nav-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse col-sm-12" id="navbarNavDropdown">
             <ul class="navbar-nav">
-                <li class="nav-item ">
-                    <a class="nav-link" href="index.html">Inicio</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="proyectos.html">Proyectos </a>
+                <li class="nav-item">
+                    <a class="nav-link" href="proyectos.html">Proyectos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="contacto.html">Contacto</a>
@@ -37,34 +37,39 @@
                     <a class="nav-link" href="quienesSomos.html">Quienes Somos</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="FAQ.html">FAQ <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="FAQ.html">FAQ</a>
                 </li>
             </ul>
+            <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
         </div>
+        <button class="btn btn-outline-success" type="submit"> 
+            <!-- <span>Iniciar sesion</span>  -->
+            <a class="nav-link" href="login.html">Iniciar sesion</a>
+        </button>
     </nav>
 
     <!--El contenido principal-->
     <main class="main">
         <div class="contenido">
-            <article class="post">
+            <article class="faq">
                 <h3>¿Cuando Saldrá el Juego?</h3>
 
-                <p class="descrip-post">
+                <p class="resp-faq">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque consectetur, quo nisi assumenda, laboriosam sunt aliquam cupiditate atque excepturi vero necessitatibus. Totam nihil sint facilis natus, quod omnis a animi.
                 </p>
 
             </article>
-            <article class="post">
+            <article class="faq">
                 <h3>¿Donde Trabajan?</h3>
 
-                <p class="descrip-post">
+                <p class="resp-faq">
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab officiis rem qui necessitatibus sit quos eaque praesentium blanditiis animi saepe obcaecati ipsum aperiam itaque optio, ipsa sint soluta quaerat enim?
                 </p>
             </article>
-            <article class="post">
+            <article class="faq">
                 <h3>¿Tendra Micropagos?</h3>
 
-                <p class="descrip-post">
+                <p class="resp-faq">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse soluta quas cumque debitis, architecto accusamus aut unde voluptates quibusdam atque incidunt quam delectus sint cum rem officiis iusto eius commodi?
                 </p>
             </article>
@@ -74,9 +79,26 @@
     <!--Pie de pagina-->
     <footer>
         <div class="contenido">
-            <p>Dogge style Games es un pequeño equipo de juegos indies de chile(?</p>
-            <p>Nuestro objetivo es...</p>
-            <p>Copyright © 2022 (por si tienen)</p>
+            <div class="foot-izq">
+                <p>Dogge style Games es un pequeño equipo de desarrollo de videojuegos chile</p>
+                <p>Nuestro objetivo es...</p>
+                <p>Copyright © 2022 (por si tienen)</p>
+            </div>
+
+            <div class="foot-der">
+                <!--Twitter-->
+                <a href="https://twitter.com">
+                    <img src="img/footer_twitter.png" alt="Twitter">
+                </a>
+                <!--Youtube-->
+                <a href="https://youtube.com">
+                    <img src="img/footer_youtube.png" alt="Youtube">
+                </a>
+                <!--Discord-->
+                <a href="https://discord.com">
+                    <img src="img/footer_discord.png" alt="Discord">
+                </a>
+            </div>
         </div>
     </footer>
 

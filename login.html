@@ -27,14 +27,14 @@
         </button>
         <div class="collapse navbar-collapse col-sm-12" id="navbarNavDropdown">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+                <li class="nav-item ">
+                    <a class="nav-link" href="index.html">Inicio</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="proyectos.html">Proyectos </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="proyectos.html">Proyectos</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="contacto.html">Contacto</a>
+                    <a class="nav-link" href="contacto.html">Contacto <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="quienesSomos.html">Quienes Somos</a>
@@ -43,63 +43,41 @@
                     <a class="nav-link" href="FAQ.html">FAQ</a>
                 </li>
             </ul>
-            <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
         </div>
-        <button class="btn btn-outline-success" type="submit"> 
-            <!-- <span>Iniciar sesion</span>  -->
-            <a class="nav-link" href="login.html">Iniciar sesion</a>
-        </button>
     </nav>
 
     <!--El contenido principal-->
     <main class="main">
         <div class="contenido">
             <!--EL get va a la base de datos, el POST no-->
-            <form id="form_contacto" class="form_contacto">
-                <h1>Contáctanos</h1>
-
-                <!--nombre-->
-                <div class="form_control">
-                    <label for="form_name">Nombre</label>
-                    <input type="text" placeholder="Tu nombre" id="form_name" />
-                    <i class="fas fa-check-circle"></i>
-                    <i class="fas fa-exclamation-circle"></i>
-                    <small>Error message</small>
-                </div>
+            <form id="form_login" class="form_login">
+                <h1>Inicia sesion</h1>
 
                 <!--correo-->
-                <div class="form_control">
+                <div class="form_control" id="form_control_email">
                     <label for="form_email">Email</label>
-                    <input type="email" placeholder="Tu correo" id="form_email" />
-                    <i class="fas fa-check-circle"></i>
-                    <i class="fas fa-exclamation-circle"></i>
-                    <small>Error message</small>
+                    <!-- La verificacion de html anula el script de verificacion-->
+                    <input type="text" placeholder="Tu correo" id="form_email" />
+                    <i id="I_correo_Succes" class="fas fa-check-circle"></i>
+                    <i id="I_correo_Error" class="fas fa-exclamation-circle"></i>
+                    <small id="errorCorreo">Error message</small>
                 </div>
 
-
-
-                <!--asunto-->
+                <!--Contraseña-->
                 <div class="form_control">
-                    <label for="form_asunto">Asunto</label>
-                    <input type="text" placeholder="El asunto" id="form_asunto" />
-                    <i class="fas fa-check-circle"></i>
-                    <i class="fas fa-exclamation-circle"></i>
-                    <small>Error message</small>
+                    <label for="form_password">Contraseña</label>
+                    <input type="password" placeholder="El Contraseña" id="form_password" />
+                    <i id="I_pass_Succes" class="fas fa-check-circle"></i>
+                    <i id="I_pass_Error" class="fas fa-exclamation-circle"></i>
+                    <small id="errorPassw">Error message</small>
                 </div>
 
-                <!--mensaje-->
-                <div class="form_control">
-                    <label for="form_message"></label>
-                    <!-- <input type="text" placeholder="Ingresa el mensaje" id="form_message" /> -->
-                    <small>Error message</small>
-                    <textarea name="mensaje" placeholder="Ingresa el mensaje" id="form_message"></textarea>
-                    <!--<i class="fas fa-check-circle"></i> -->
-                    <i class="fas fa-exclamation-circle"></i>
-
-                </div>
+                <p>¿No tienes cuenta?
+                    <a class="link" href="registro.html"> <u>Crear cuenta</u></a>
+                </p>
 
                 <!--boton-->
-                <button>Enviar</button>
+                <button id="btnLogin" type="submit">Iniciar sesion</button>
             </form>
         </div>
     </main>
@@ -135,7 +113,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!--Validacion-->
-    <script src="JavaScript/validacionContacto.js"></script>
+    <script src="JavaScript/validacionLogin.js"></script>
 </body>
 
 </html>

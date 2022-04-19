@@ -9,8 +9,8 @@
     <link rel="icon" href="img/favicon.png" type="image/png" />
     <!--Boostrap 4.3.1-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link type="text/css" rel="stylesheet" href="css/style.css" />
     <link type="text/css" rel="stylesheet" href="css/custom-boostrap.css" />
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
 </head>
 
 
@@ -18,67 +18,68 @@
     <!--Cabecera con boostrap-->
     <!--Quite el bg-light, es un !important que define el fondo como blanco, el narbar-light es el color del texto para el tipo de pagina (light-negro / dark-blanco)-->
     <nav class="navbar navbar-expand-lg navbar-light  ">
-        <a class="navbar-brand" href="#"> <img width="64px" src="img/favicon.png" alt="Logo"> </a>
+        <img width="64" src="img/favicon.png" alt="Logo">
         <!--Menu nav-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse col-sm-12" id="navbarNavDropdown">
             <ul class="navbar-nav">
-                <li class="nav-item ">
-                    <a class="nav-link" href="index.html">Inicio</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="proyectos.html">Proyectos </a>
+                <li class="nav-item">
+                    <a class="nav-link" href="proyectos.html">Proyectos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="contacto.html">Contacto</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="quienesSomos.html">Quienes Somos <span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link active" href="quienesSomos.html">Quienes Somos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="FAQ.html">FAQ</a>
                 </li>
             </ul>
+            <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
         </div>
+        <button class="btn btn-outline-success" type="submit"> 
+            <!-- <span>Iniciar sesion</span>  -->
+            <a class="nav-link" href="login.html">Iniciar sesion</a>
+        </button>
     </nav>
 
     <!--El contenido principal-->
     <main class="main">
         <div class="contenido">
-            <div class="Equipo">
+            <h1 class="about-tittle">Dogge Style Games</h1>
+            <img src="img/favicon.png" alt="Logo" class="about_logo">
+            <p class="text-center">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident cumque, vitae, nostrum fugit maxime vero nam ipsa quod eaque deserunt, architecto cum blanditiis commodi? Beatae nihil dolores cupiditate quasi dolore?
+            </p>
 
-
-                <article class="post">
-                    <h1>Somos, Dogge Style Games</h1>
-                    <p class="descrip-post">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident cumque, vitae, nostrum fugit maxime vero nam ipsa quod eaque deserunt, architecto cum blanditiis commodi? Beatae nihil dolores cupiditate quasi dolore?
-                    </p>
-
-                </article>
-
-                <article class="post">
-                    <img src="img/Imagen perfil 1.jpg" alt="Foto de Perfil" class="img-post">
+            <div class="equipo">
+                <article class="miembro">
                     <h2>CEO</h2>
+                    <img src="img/Imagen_perfil1.jpg" alt="Foto de Perfil" class="img_miembro">
                     <h4>Nelson Salgado</h4>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus perspiciatis ad ipsa voluptatum beatae enim velit ut quas, eius sunt recusandae sint, cum nihil. Tempora repellendus commodi numquam quos incidunt.
                     </p>
                 </article>
 
-                <article class="post">
-                    <img src="img/Imagen perfil 2.png" alt="Foto de Perfil" class="img-post">
+                <article class="miembro">
                     <h2>CTO</h2>
+                    <img src="img/Imagen_perfil2.png" alt="Foto de Perfil" class="img_miembro">
                     <h4>Matias Silva</h4>
                     <p>
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa molestiae fuga incidunt explicabo architecto ducimus aliquid quo. Possimus necessitatibus et maxime voluptatum rerum officia sunt, nisi id suscipit, fugiat aliquam.
                     </p>
                 </article>
 
-                <article class="post">
-                    <img src="img/Imagen perfil 3.png" alt="Foto de Perfil" class="img-post">
+                <article class="miembro">
                     <h2>Game Design</h2>
+                    <img src="img/Imagen_perfil3.png" alt="Foto de Perfil" class="img_miembro">
                     <h4>Nicolás Cabrera</h4>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur dolorum totam fuga veniam id quis vitae voluptates quod alias, architecto dolor ab sint pariatur molestiae assumenda possimus eum excepturi earum!
@@ -94,9 +95,26 @@
     <!--Pie de pagina-->
     <footer>
         <div class="contenido">
-            <p>Dogge style Games es un pequeño equipo de juegos indies de chile(?</p>
-            <p>Nuestro objetivo es...</p>
-            <p>Copyright © 2022 (por si tienen)</p>
+            <div class="foot-izq">
+                <p>Dogge style Games es un pequeño equipo de desarrollo de videojuegos chile</p>
+                <p>Nuestro objetivo es...</p>
+                <p>Copyright © 2022 (por si tienen)</p>
+            </div>
+
+            <div class="foot-der">
+                <!--Twitter-->
+                <a href="https://twitter.com">
+                    <img src="img/footer_twitter.png" alt="Twitter">
+                </a>
+                <!--Youtube-->
+                <a href="https://youtube.com">
+                    <img src="img/footer_youtube.png" alt="Youtube">
+                </a>
+                <!--Discord-->
+                <a href="https://discord.com">
+                    <img src="img/footer_discord.png" alt="Discord">
+                </a>
+            </div>
         </div>
     </footer>
 

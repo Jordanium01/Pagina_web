@@ -1,9 +1,5 @@
-.navbar img {
-    align-items: top;
-}
-
 .navbar-light {
-    --header-color: #df98ab;
+    /*--header-color: #df98ab;*/
     background-color: var(--header-color);
     position: fixed;
     /*Darle una profundidad mas externa para que el carrusel no lo sobrepase*/
@@ -16,6 +12,79 @@
     right: 0;
 }
 
+.navbar-light .btn {
+    position: fixed;
+    margin-right: 10px;
+    right: 0;
+}
+
+
+/*Boton de la cabecera*/
+
+.btn-outline-success a {
+    color: #000000;
+}
+
+.btn-outline-success {
+    color: #000000;
+    background-color: var(--navbar-hover);
+    border-color: var(--navbar-hover);
+    border-radius: 5px;
+}
+
+.btn-outline-success:hover,
+.btn-outline-success:active,
+.btn-outline-success:visited {
+    color: #000000;
+    background-color: var(--navbar-hover-trasnparent);
+    border-color: var(--navbar-hover);
+}
+
+.btn-outline-success:focus,
+.btn-outline-success.focus {
+    box-shadow: 0 0 0 0.2rem var(--navbar-hover-trasnparent);
+}
+
+.btn-outline-success.disabled,
+.btn-outline-success:disabled {
+    color: var(--navbar-hover);
+    background-color: transparent;
+}
+
+.btn-outline-success:not(:disabled):not(.disabled):active,
+.btn-outline-success:not(:disabled):not(.disabled).active,
+.show>.btn-outline-success.dropdown-toggle {
+    color: #fff;
+    background-color: var(--navbar-hover);
+    border-color: var(--navbar-hover);
+}
+
+.btn-outline-success:not(:disabled):not(.disabled):active:focus,
+.btn-outline-success:not(:disabled):not(.disabled).active:focus,
+.show>.btn-outline-success.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem var(--navbar-hover-trasnparent);
+}
+
+@media only screen and (max-width: 992px) {
+    .navbar-light .btn {
+        position: absolute;
+        margin-right: 6rem;
+        right: 0;
+        top: 0;
+        margin-top: 1.1rem;
+    }
+}
+
+
+/*Poner un marco al navbar al seleccionar*/
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:focus {
+    display: block;
+    background-color: var(--navbar-hover);
+    border-radius: 5px;
+}
+
 .navbar-collapse {
     text-align: right;
 }
@@ -25,80 +94,11 @@
 
 .carousel {
     width: 60%;
-    height: auto;
     margin-left: 20%;
     margin-right: 20%;
 }
 
-
-/*
-.carousel-item {
-    width: 80%;
-    padding-left: 10%;
-    padding-right: 10%;
-    height: auto;
-    float: center;
-}
-
-.carousel .item img {
-    width: 80%;
-    padding-left: 10%;
-    padding-right: 10%;
-    height: auto;
-    float: center;
-}
-
-.container {
-    width: 80%;
-    padding-left: 10%;
-    padding-right: 10%;
-    height: auto;
-    float: center;
-}
-
-
-
-/*--Carrusel--
-
-.carousel-item {
-    width: 80vw;
-    margin-left: 10vw;
-    margin-right: 10vw;
-    height: auto;
-}
-
-.carousel-item-next {
-    width: 80vw;
-    margin-left: 10vw;
-    margin-right: 10vw;
-    height: auto;
-}
-
-.carousel {
-    width: 80vw;
-    padding-left: 10vw;
-    padding-right: 10vw;
-    height: auto;
-}
-
-
-.d-block {
-    width: 80vw;
-    padding-left: 10vw;
-    padding-right: 10vw;
-    height: auto;
-}
-
-.carousel-inner {
-    width: 80vw;
-    padding-left: 10vw;
-    padding-right: 10vw;
-    height: auto;
-}
-
-.carousel-caption {
-    width: 80vw;
-    padding-left: 10vw;
-    padding-right: 10vw;
-    height: auto;
+/*añadir una sombra atras del texto blanco del carrusel*/
+.carousel h5, .carousel p{
+    background-color: var(--color-shadow);
 }
