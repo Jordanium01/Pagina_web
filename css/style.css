@@ -153,12 +153,99 @@ main {
 
 /*----Pagina de proyectos----*/
 
-.img-proyect {
+#contenido-proyectos {
+    width: 80%;
+    max-width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 30px;
     margin-bottom: 20px;
-    margin-left: 20%;
-    margin-right: 20%;
-    width: 60%;
     height: auto;
+    overflow: hidden;
+    /*
+    display: flex;
+    flex-wrap: wrap;
+    */
+}
+
+.proyecto {
+    margin-top: 10px;
+    padding-top: 20px;
+    height: auto;
+}
+
+#contenido-proyectos h2 {
+    margin-left: 55px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+}
+
+#contenido-proyectos p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+
+/*
+@media only screen and (max-width: 767px) {
+    .contenido-proyectos {
+        display: block;
+        flex-wrap: nowrap;
+    }
+}
+
+.div-img {
+    width: 30%;
+}
+
+.img-proyect {
+    width: 100%;
+}
+
+.right-si {
+    width: 70%;
+}
+
+.store-proyect {
+    width: 100%;
+}
+*/
+
+.img-proyect {
+    float: left;
+    margin-top: 20px;
+    width: 220px;
+    height: 360px;
+    max-height: 100%;
+    object-fit: cover;
+    margin: 7px 40px 8px 0px;
+    padding: 5px;
+    border-radius: 20px;
+}
+
+.desc-proyect {
+    height: 50%;
+    font-size: 16px;
+    font-weight: 300;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-break: auto;
+    padding: 7px;
+}
+
+.store-proyect {
+    width: 70%;
+    height: 198px;
+    margin-top: 2rem;
+}
+
+
+/*exclusivo para el widget de steam*/
+
+@media only screen and (max-width: 1515px) {
+    .store-proyect {
+        width: 100%;
+    }
 }
 
 
@@ -406,6 +493,14 @@ textarea:required:not(:placeholder-shown):invalid {
     font-size: 20px;
 }
 
+.form_login u {
+    text-decoration: none;
+}
+
+.form_login u:hover {
+    text-decoration: underline;
+}
+
 
 /*Pagina de registrar cuenta*/
 
@@ -524,7 +619,8 @@ footer {
         width: 100%;
         height: auto;
     }
-    .img-post {
+    .img-post,
+    .img-proyect {
         /*imagenes responsivas*/
         width: 100%;
         height: auto;
@@ -556,5 +652,13 @@ footer {
         margin-left: 15%;
         margin-right: 25%;
         margin-bottom: 10px;
+    }
+    #contenido-proyectos h2 {
+        text-align: center;
+        margin-left: 0px;
+    }
+    .proyecto {
+        height: auto;
+        margin-top: 10px;
     }
 }

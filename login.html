@@ -19,6 +19,7 @@
 <body>
     <!--Cabecera con boostrap-->
     <!--Quite el bg-light, es un !important que define el fondo como blanco, el narbar-light es el color del texto para el tipo de pagina (light-negro / dark-blanco)-->
+    <!---->
     <nav class="navbar navbar-expand-lg navbar-light  ">
         <img width="64" src="img/favicon.png" alt="Logo">
         <!--Menu nav-->
@@ -64,9 +65,9 @@
                 </div>
 
                 <!--Contraseña-->
-                <div class="form_control">
+                <div class="form_control" id="form_control_password">
                     <label for="form_password">Contraseña</label>
-                    <input type="password" placeholder="El Contraseña" id="form_password" />
+                    <input type="password" placeholder="Contraseña" id="form_password" />
                     <i id="I_pass_Succes" class="fas fa-check-circle"></i>
                     <i id="I_pass_Error" class="fas fa-exclamation-circle"></i>
                     <small id="errorPassw">Error message</small>
@@ -109,7 +110,7 @@
     </footer>
 
     <!--Java Script Boostrap-->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js " integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=" anonymous " referrerpolicy="no-referrer "></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!--Validacion-->
