@@ -168,18 +168,21 @@ main {
     margin-top: 10px;
     padding-top: 20px;
     height: auto;
+    box-shadow: 0px 1px 8px 0px black;
 }
 
 #contenido-proyectos h2 {
     /*margin-left: 55px;*/
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 30px;
+    font-family: "Ginto Normal", "Whitney", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-size: 40px;
     text-align: center;
+    font-weight: 700;
 }
 
 #contenido-proyectos p {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
+    font-size: 20px;
+    line-height: 2.0;
 }
 
 .img-proyect {
