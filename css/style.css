@@ -159,57 +159,31 @@ main {
     margin-left: 10%;
     margin-right: 10%;
     margin-top: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     height: auto;
     overflow: hidden;
-    /*
-    display: flex;
-    flex-wrap: wrap;
-    */
 }
 
 .proyecto {
     margin-top: 10px;
     padding-top: 20px;
     height: auto;
+    box-shadow: 0px 1px 8px 0px black;
 }
 
 #contenido-proyectos h2 {
-    margin-left: 55px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 30px;
+    /*margin-left: 55px;*/
+    font-family: "Ginto Normal", "Whitney", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-size: 40px;
+    text-align: center;
+    font-weight: 700;
 }
 
 #contenido-proyectos p {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
+    font-size: 20px;
+    line-height: 2.0;
 }
-
-
-/*
-@media only screen and (max-width: 767px) {
-    .contenido-proyectos {
-        display: block;
-        flex-wrap: nowrap;
-    }
-}
-
-.div-img {
-    width: 30%;
-}
-
-.img-proyect {
-    width: 100%;
-}
-
-.right-si {
-    width: 70%;
-}
-
-.store-proyect {
-    width: 100%;
-}
-*/
 
 .img-proyect {
     float: left;
@@ -225,6 +199,7 @@ main {
 
 .desc-proyect {
     height: 50%;
+    min-height: 140px;
     font-size: 16px;
     font-weight: 300;
     overflow: hidden;
@@ -234,7 +209,7 @@ main {
 }
 
 .store-proyect {
-    width: 70%;
+    width: 75%;
     height: 198px;
     margin-top: 2rem;
 }

@@ -2,31 +2,31 @@
     "categories": [{
             "idGame": "1",
             "strTittle": "Hollow Knight",
-            "strGameThumbnail": "https://m.media-amazon.com/images/I/71UQZy7HEjL._SL1500_.jpg",
+            "strGameThumbnail": "img/proyect_hollowCover.jpeg",
             "strGameDescription": "Bajo la piel del misterioso Hollow Knight, los jugadores se embarcan en una aventura a través de las profundidades de Hallownest, un vasto y antiguo reino con zonas interconectadas que se encuentra enterrado bajo la tierra. Pese a permanecer en ruinas debido a una catástrofe que ya muy pocos recuerdan, exploradores y ladrones aún adquieren el coraje necesario para atravesar sus oscuros caminos, sus cavernas y torres, en busca de riquezas y maravillas.",
-            "strGameStore": "https://store.steampowered.com/widget/367520/"
+            "strGameStore": "https://jordanium01.github.io/widget_hollowKnight.html"
 
         },
         {
             "idGame": "2",
             "strTittle": "Dark Souls Remastered",
-            "strGameThumbnail": "https://cdn-prod.scalefast.com/public/assets/user/122595/image/eed8617c83ce52e9beb552ad8eb468d3.jpg",
+            "strGameThumbnail": "img/proyect_DarkSoulsCover.png",
             "strGameDescription": "Dark Souls tiene lugar en el reino ficticio de Lordran. Los jugadores toman el papel de un personaje humano no-muerto que ha sido elegido para realizar un peregrinaje para descubrir el destino de los no muertos.",
-            "strGameStore": "https://store.steampowered.com/widget/570940/"
+            "strGameStore": "https://jordanium01.github.io/widget_DarkSouls.html"
         },
         {
             "idGame": "3",
-            "strTittle": "Dark Souls 2 Schollar of the first sin",
-            "strGameThumbnail": "https://image.api.playstation.com/vulcan/img/rnd/202010/0919/KsbzaxvzYc4rhCpU5XcewIfn.png",
-            "strGameDescription": "El juego tiene lugar en Drangleic, una tierra anteriormente próspera bajo el mando del rey Vendrick, la cual ha caído en la ruina a través de los años debido a la guerra entre humanos y gigantes, la desaparición repentina del rey y una nueva plaga abismal. Al igual que otros, el protagonista ha llegado al reino desmoronado en busca de una cura para su aflicción, la maldición del no muerto.",
-            "strGameStore": "https://store.steampowered.com/widget/335300/"
+            "strTittle": "LUMINES REMASTERED",
+            "strGameThumbnail": "img/proyect_LuminesCover.jpg",
+            "strGameDescription": "¡El juego de puzles con mejores críticas producido por el famoso diseñador Tetsuya Mizuguchi llega a PC!",
+            "strGameStore": "https://jordanium01.github.io/widget_Lumines.html"
         },
         {
             "idGame": "4",
-            "strTittle": "Dark Souls 3",
-            "strGameThumbnail": "https://store-images.s-microsoft.com/image/apps.24212.71827372323164480.6e97c7d2-899a-404f-8660-d622a7fc9162.daea9ed5-4921-45a6-a188-637bfab7176c",
-            "strGameDescription": "Situado en el reino de Lothric, el jugador tiene la tarea de sobrevivir a un apocalipsis que se aproxima, provocado por el conflicto entre la Era del Fuego y aquellos marcados con la Señal oscura, el clásico conflicto dado en las anteriores entregas de la saga. Para sobrevivir en este caso, el personaje del jugador deberá enfrentarse a los Señores de la Ceniza, héroes del pasado que enlazaron el Fuego.",
-            "strGameStore": "https://store.steampowered.com/widget/374320/"
+            "strTittle": "Sonic Mania",
+            "strGameThumbnail": "img/proyect_SonicCover.jpg",
+            "strGameDescription": "Sonic Mania es una nueva aventura de Sonic, Tails y Knuckles con Jefes finales únicos, gloriosos escenarios en 2D y el clásico modo de juego de la saga.",
+            "strGameStore": "https://jordanium01.github.io/widget_sonic.html"
         }
     ]
 }
