@@ -1,0 +1,774 @@
+/*
+tabla de medida de unidades
+https://developer.mozilla.org/es/docs/Learn/CSS/Building_blocks/Values_and_units
+*/
+
+
+/*----Global----*/
+
+
+/*Cabecera*/
+
+.nav_button {
+    display: -ms-flexbox;
+    display: flex;
+}
+
+body {
+    /*Variables de colores*/
+    --header-color: #ff8fad;
+    --header-color-dark: #eb85a0;
+    --navbar-hover: #2a7fff;
+    --navbar-hover-trasnparent: rgba(104, 152, 255, 0.712);
+    --footer-color: #23272a;
+    --form-background: #474747b0;
+    --color-white: #ffffff;
+    --color-orange: #ffa339;
+    --color-black: #000000;
+    --color-shadow: rgba(0, 0, 0, 0.5);
+    --color-error: #ff1d1d;
+    --color-success: #00ff00;
+    /*Lo demas*/
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    /*interlineado*/
+    line-height: 1.63em;
+    margin: 0;
+    /*Generar relleno para que el contenido no se solape con el texto*/
+    margin-top: 50px;
+    /*Para que el footer siempre se quede abajo*/
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /*Poner una imagen de fondo*/
+    background-image: url("/static/catalogos/img/backbody.jpg");
+    background-repeat: repeat;
+    background-size: auto;
+    background-attachment: fixed;
+}
+
+p {
+    margin-bottom: 1.6em;
+}
+
+h1 {
+    font-size: 2.2rem;
+    line-height: 1.3em;
+}
+
+.contenido {
+    width: 90%;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+
+/*Animacion de fundido en el main*/
+
+main {
+    animation: fadeInAnimation ease 0.8s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/*---Publicaciones---*/
+
+
+/*Bloque de las publicaciones*/
+
+#publicaciones {
+    width: 90%;
+    height: auto;
+    overflow: hidden;
+    /*border: 1px solid;*/
+    margin-top: 30px;
+}
+
+
+/*Titulo de las publicaciones*/
+
+#publicaciones a {
+    color: var(--color-orange);
+    font-size: 22px;
+    font-weight: 400;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-bottom: 20px;
+}
+
+#publicaciones a:hover {
+    text-decoration: underline;
+}
+
+.post {
+    width: 98%;
+    /*float: center;*/
+    height: auto;
+    /*Que el texto no se salga del contenedor*/
+    overflow: hidden;
+    padding: 7px;
+    border-left-width: 5px;
+    border-radius: 10px;
+}
+
+
+/*Descripcion de la publicacion*/
+
+.post p {
+    /*Tamaño maximo del contenedor*/
+    height: 120px;
+    font-size: 16px;
+    font-weight: 300;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-break: auto;
+}
+
+.enlace-post {
+    text-decoration: none;
+}
+
+
+/*Imagenes de la publicacion*/
+
+.img-post {
+    float: left;
+    margin-top: 20px;
+    width: 320px;
+    height: 240px;
+    /*margin: arriba / derecha / abajo / izquierda*/
+    margin: 7px 40px 8px 0px;
+    padding: 5px;
+    border-radius: 40px;
+}
+
+
+/*----Pagina de proyectos----*/
+
+#contenido-proyectos {
+    width: 80%;
+    max-width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height: auto;
+    overflow: hidden;
+}
+
+#contenido-proyectos a {
+    border-radius: 4px;
+    color: var(--color-white);
+    display: inline-block;
+    font-family: inherit;
+    font-size: 16px;
+    padding: 10px;
+    /*margin-top: 20px;*/
+    width: 10%;
+    height: auto;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 1rem;
+}
+
+#contenido-proyectos a:hover {
+    text-decoration: none;
+}
+
+.proyecto_mod {
+    background-color: var(--navbar-hover);
+    border: 2px solid var(--navbar-hover);
+}
+
+.proyecto_mod:hover {
+    background-color: var(--navbar-hover-trasnparent);
+    border: 2px solid var(--navbar-hover-trasnparent);
+}
+
+.proyecto_del {
+    background-color: #f32e2e;
+    border: 2px solid #f32e2e;
+}
+
+.proyecto_del:hover {
+    background-color: #f86060;
+    border: 2px solid #f86060;
+}
+
+.proyecto {
+    margin-top: 10px;
+    padding-top: 20px;
+    height: auto;
+    box-shadow: 0px 1px 8px 0px black;
+}
+
+#contenido-proyectos h2 {
+    /*margin-left: 55px;*/
+    font-family: "Ginto Normal", "Whitney", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-size: 40px;
+    text-align: center;
+    font-weight: 700;
+}
+
+#contenido-proyectos p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    line-height: 2.0;
+}
+
+.img-proyect {
+    float: left;
+    margin-top: 20px;
+    width: 220px;
+    height: 360px;
+    max-height: 100%;
+    object-fit: cover;
+    margin: 7px 40px 8px 0px;
+    padding: 5px;
+    border-radius: 20px;
+}
+
+.desc-proyect {
+    height: 50%;
+    min-height: 140px;
+    font-size: 16px;
+    font-weight: 300;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-break: auto;
+    padding: 7px;
+}
+
+.store-proyect {
+    width: 75%;
+    height: 198px;
+    margin-top: 2rem;
+}
+
+
+/*exclusivo para el widget de steam*/
+
+@media only screen and (max-width: 1515px) {
+    .store-proyect {
+        width: 100%;
+    }
+}
+
+
+/*----Pagina quienes somos----*/
+
+.about-tittle {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.about_logo {
+    width: 20%;
+    height: auto;
+    margin-left: 40%;
+    margin-right: 40%;
+}
+
+.equipo {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.miembro {
+    width: 98%;
+    /*float: center;*/
+    height: auto;
+    /*Que el texto no se salga del contenedor*/
+    overflow: hidden;
+    padding: 7px;
+    border-left-width: 5px;
+    border-radius: 10px;
+}
+
+.miembro>p {
+    /*Tamaño maximo del contenedor*/
+    font-size: 16px;
+    font-weight: 300;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-break: auto;
+}
+
+.miembro>h2,
+.miembro>h4 {
+    text-align: center;
+    margin-right: 15%;
+}
+
+
+/*Imagenes de la publicacion*/
+
+.img_miembro {
+    float: left;
+    margin-top: 20px;
+    width: 80%;
+    height: auto;
+    /*margin: arriba / derecha / abajo / izquierda*/
+    margin: 7px 40px 8px 0px;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+
+/*----Ajuste global para formularios----*/
+
+form {
+    /*Crear fondo para el formulario*/
+    width: 550px;
+    margin: auto;
+    background: var(--form-background);
+    padding: 10px 20px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+form h1 {
+    /*Titulo*/
+    font-family: monospace;
+    color: var(--color-black);
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+
+.form_control label {
+    font-family: monospace;
+    color: var(--color-black);
+    font-size: 18px;
+    margin-bottom: 0px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.form_control textarea {
+    color: var(--color-black);
+    min-height: 100px;
+    max-height: 300px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.form_control {
+    /*margin-bottom: 10px;*/
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.form_control input {
+    border: 2px solid var(--color-white);
+    border-radius: 4px;
+    display: block;
+    font-family: inherit;
+    font-size: 14px;
+    padding: 10px;
+    width: 100%;
+    height: 40px;
+}
+
+.form_control input:focus {
+    outline: 0;
+    border-color: #777;
+}
+
+
+/*Cambiar los bordes*/
+
+.form_control.error input,
+.form_control.error textarea {
+    border-color: var(--color-error);
+}
+
+.form_control.success input,
+.form_control.success textarea {
+    border-color: var(--color-success);
+}
+
+.form_control i {
+    visibility: hidden;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+}
+
+i.fa-check-circle {
+    color: var(--color-success);
+}
+
+.form_control.success i.fa-check-circle {
+    visibility: visible;
+}
+
+i.fa-exclamation-circle {
+    color: var(--color-error);
+}
+
+.form_control.error i.fa-exclamation-circle {
+    visibility: visible;
+}
+
+
+/*Mensaje de error*/
+
+.form_control small {
+    color: var(--color-error);
+    position: absolute;
+    left: 0;
+    visibility: hidden;
+}
+
+.form_control.error small {
+    visibility: visible;
+}
+
+.form_contacto button {
+    background-color: var(--color-orange);
+    border: 2px solid var(--color-orange);
+    border-radius: 4px;
+    color: var(--color-white);
+    display: block;
+    font-family: inherit;
+    font-size: 16px;
+    padding: 10px;
+    /*margin-top: 20px;*/
+    width: 100%;
+}
+
+
+/*Mensajes de error con jQuery*/
+
+.form_control span {
+    color: var(--color-error);
+    position: absolute;
+    left: 0;
+}
+
+
+/*-Validar espacios- con CSS en tiempo real*/
+
+
+/*Bordes*/
+
+form input:required:not(:placeholder-shown):valid,
+textarea:required:not(:placeholder-shown):valid {
+    border: 2px solid var(--color-success);
+}
+
+form input:required:not(:placeholder-shown):invalid,
+textarea:required:not(:placeholder-shown):invalid {
+    border: 2px solid var(--color-error);
+}
+
+
+/*Pagina de iniciar sesion*/
+
+.form_login button {
+    background-color: var(--color-orange);
+    border: 2px solid var(--color-orange);
+    border-radius: 4px;
+    color: var(--color-white);
+    display: block;
+    font-family: inherit;
+    font-size: 16px;
+    padding: 10px;
+    /*margin-top: 20px;*/
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.form_login {
+    margin-top: 10vh;
+}
+
+.form_login p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.form_login a {
+    color: var(--color-white);
+    font-size: 20px;
+}
+
+.form_login u {
+    text-decoration: none;
+}
+
+.form_login u:hover {
+    text-decoration: underline;
+}
+
+
+/*Pagina de registrar cuenta*/
+
+.form_registro button {
+    background-color: var(--color-orange);
+    border: 2px solid var(--color-orange);
+    border-radius: 4px;
+    color: var(--color-white);
+    display: block;
+    font-family: inherit;
+    font-size: 16px;
+    padding: 10px;
+    /*margin-top: 20px;*/
+    width: 100%;
+}
+
+.form_registro p {
+    font-size: small;
+    text-align: center;
+}
+
+
+/*---Registrar proyecto---*/
+
+
+/*
+.form_proyecto input {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 1rem;
+}
+*/
+
+.form_proyecto input {
+    border: 2px solid var(--color-white);
+    border-radius: 4px;
+    display: block;
+    margin: auto;
+    margin-bottom: 1rem;
+    font-family: inherit;
+    font-size: 14px;
+    padding: 10px;
+    width: 90%;
+    height: 40px;
+}
+
+.form_proyecto textarea {
+    border: 2px solid var(--color-white);
+    border-radius: 4px;
+    display: block;
+    margin: auto;
+    margin-bottom: 1rem;
+    font-family: inherit;
+    font-size: 14px;
+    padding: 10px;
+    width: 90%;
+    height: 40px;
+}
+
+#file-upload-button {
+    border: 0;
+}
+
+#id_caratula {
+    height: auto;
+}
+
+.form_proyecto button {
+    background-color: var(--color-orange);
+    border: 2px solid var(--color-orange);
+    border-radius: 4px;
+    color: var(--color-white);
+    display: block;
+    font-family: inherit;
+    font-size: 16px;
+    padding: 10px;
+    /*margin-top: 20px;*/
+    width: 90%;
+}
+
+.form_proyecto select {
+    width: 90%;
+    display: block;
+    margin: auto;
+}
+
+.form_proyecto label {
+    text-align: center;
+    display: block;
+    margin: auto;
+    margin-top: 0.2rem;
+    font-family: monospace;
+    font-size: 26px;
+}
+
+.form_proyecto a {
+    width: 50%;
+    text-overflow: clip;
+    line-break: auto;
+}
+
+#form_proyect_button {
+    display: block;
+    margin: auto;
+    margin-top: 1rem;
+}
+
+#form_proyect_alert {
+    color: #0c47a0;
+    display: block;
+    margin: auto;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+
+/*----Pagina de FAQ----*/
+
+.faq>h3 {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40px;
+}
+
+.faq>p {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+
+/*---Cabecera---*/
+
+header {
+    background-color: var(--header-color);
+    /*que flote hacia la izquierda*/
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--color-white);
+    /*altura*/
+    height: 4rem;
+}
+
+
+/*Links de la cabecera*/
+
+header a {
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+
+/*Al pasar el mouse por encima de cada bloque*/
+
+#menu ul li a:hover {
+    background-color: var(--color-orange);
+}
+
+.main {
+    /*Generar un relleno para la cabecera que se mueve*/
+    padding-top: 4rem;
+}
+
+
+/*---Pie de pagina---*/
+
+footer {
+    /*Que tenga los mismos colores que la cabecera*/
+    background-color: var(--footer-color);
+    /*que flote hacia la izquierda*/
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    color: var(--color-white);
+    padding: 1rem 0;
+    /*Para que el footer siempre se quede abajo*/
+    margin-top: auto;
+    /**/
+    height: 11vh;
+    line-height: 0.5rem;
+    height: auto;
+}
+
+.foot-izq {
+    text-align: left;
+    float: left;
+    /*Para que no colisionen las letras por salto de linea*/
+    line-height: 1rem;
+}
+
+.foot-der {
+    text-align: right;
+    /*float: right;*/
+}
+
+.foot-der img {
+    padding: 20px;
+    text-decoration: none;
+    width: 10%;
+    min-width: 64px;
+}
+
+.foot-der img:hover {
+    opacity: 0.6;
+}
+
+
+/*Hacer que el menu se adapte a la resolucion y cambie*/
+
+@media only screen and (max-width: 767px) {
+    main img {
+        /*imagenes responsivas*/
+        width: 100%;
+        height: auto;
+    }
+    .img-post,
+    .img-proyect {
+        /*imagenes responsivas*/
+        width: 100%;
+        height: auto;
+    }
+    header a {
+        color: var(--color-white);
+        text-decoration: none;
+        /*text-align: top;*/
+    }
+    /*Trasformar cada opcion del menu en un bloque*/
+    /*Cambiar pagina de contacto*/
+    form {
+        width: 100%;
+    }
+    /*Cambiar footer*/
+    footer {
+        width: 100%;
+        margin-top: auto;
+    }
+    /*--Pagina quienes somos--*/
+    .equipo article {
+        grid-column: 1 / -1;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .img_miembro {
+        width: 60%;
+        height: auto;
+        margin-left: 15%;
+        margin-right: 25%;
+        margin-bottom: 10px;
+    }
+    #contenido-proyectos h2 {
+        text-align: center;
+        margin-left: 0px;
+    }
+    .proyecto {
+        height: auto;
+        margin-top: 10px;
+    }
+}
