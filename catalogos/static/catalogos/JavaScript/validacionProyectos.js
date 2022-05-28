@@ -1,6 +1,6 @@
 //Confirmar al eliminar un proyecto
 function confirmar() {
-    var Respuesta = confirm("Seguro wachin?")
+    var Respuesta = confirm("¿Estas seguro de querer eliminar?")
 
     if (Respuesta == true) {
 
