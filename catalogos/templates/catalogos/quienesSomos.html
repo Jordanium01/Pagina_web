@@ -1,0 +1,131 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dogge style games</title>
+    <link rel="icon" href="{% static 'catalogos/img/favicon.png'%}" type="image/png" />
+    <!--Boostrap 4.3.1-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="{% static 'catalogos/css/custom-boostrap.css'%} " />
+    <link type="text/css" rel="stylesheet" href="{% static 'catalogos/css/style.css'%}" />
+</head>
+
+
+<body>
+    <!--Cabecera con boostrap-->
+    <!--Quite el bg-light, es un !important que define el fondo como blanco, el narbar-light es el color del texto para el tipo de pagina (light-negro / dark-blanco)-->
+    <nav class="navbar navbar-expand-lg navbar-light  ">
+        <img width="64" src="{% static 'catalogos/img/favicon.png'%}" alt="Logo">
+        <!--Menu nav-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse col-sm-12" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}">Inicio <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'proyectos' %}">Proyectos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'fom_proyectos' %}">Registrar proyectos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'qsomos' %}">Quienes Somos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'faq' %}">FAQ</a>
+                </li>
+            </ul>
+            <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+        </div>
+        <!--Boton de iniciar sesion-->
+        <a class=" btn btn-outline-success nav-link" href="{% url 'login' %}">Iniciar sesion</a>
+    </nav>
+
+    <!--El contenido principal-->
+    <main class="main">
+        <div class="contenido">
+            <h1 class="about-tittle">Dogge Style Games</h1>
+            <img src="{% static 'catalogos/img/favicon.png'%}" alt="Logo" class="about_logo">
+            <p class="text-center">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident cumque, vitae, nostrum fugit maxime vero nam ipsa quod eaque deserunt, architecto cum blanditiis commodi? Beatae nihil dolores cupiditate quasi dolore?
+            </p>
+
+            <div class="equipo">
+                <article class="miembro">
+                    <h2>CEO</h2>
+                    <img src="{% static 'catalogos/img/Imagen_perfil1.jpg'%}" alt="Foto de Perfil" class="img_miembro">
+                    <h4>Leonel barrios</h4>
+                    <p>
+                        Es el director ejecutivo del estudio, aunque también es parte del equipo de programación cuando es necesario. Fanático de las computadoras desde que era un niño, no perdió la oportunidad de formar este estudio de desarrollo cuando encontró la oportunidad.
+                    </p>
+                </article>
+
+                <article class="miembro">
+                    <h2>Programador</h2>
+                    <img src="{% static 'catalogos/img/Imagen_perfil2.png'%}" alt="Foto de Perfil" class="img_miembro">
+                    <h4>Berto carreras</h4>
+                    <p>
+                        Berto es el programador más talentoso que tenemos (es el único), ha estado desarrollando la mayoría de nuestros proyectos el mismo y optimizándolos hasta el hartazgo, es un perfeccionista que ha sido fundamental en el estudio.
+                    </p>
+                </article>
+
+                <article class="miembro">
+                    <h2>Game Design</h2>
+                    <img src="{% static 'catalogos/img/Imagen_perfil3.png'%}" alt="Foto de Perfil" class="img_miembro">
+                    <h4>Oriana verdejo</h4>
+                    <p>
+                        Nuestra diseñadora es la encargada de diseñar todos los elementos que componen nuestros proyectos, abarcando cosas como los conceptos, mecánicas y/o niveles, sin ella nuestros proyectos no tendrían la dirección que tuvieron y no serían lo mismo.
+                    </p>
+                </article>
+
+
+
+            </div>
+        </div>
+    </main>
+
+    <!--Pie de pagina-->
+    <footer>
+        <div class="contenido">
+            <div class="foot-izq">
+                <p>Dogge style Games es un pequeño equipo de desarrollo de videojuegos chile</p>
+                <p>Nuestro objetivo es...</p>
+                <p>Copyright © 2022 (por si tienen)</p>
+            </div>
+
+            <div class="foot-der">
+                <!--Twitter-->
+                <a href="https://twitter.com">
+                    <img src="{% static 'catalogos/img/footer_twitter.png'%}" alt="Twitter">
+                </a>
+                <!--Youtube-->
+                <a href="https://youtube.com">
+                    <img src="{% static 'catalogos/img/footer_youtube.png'%}" alt="Youtube">
+                </a>
+                <!--Discord-->
+                <a href="https://discord.com">
+                    <img src="{% static 'catalogos/img/footer_discord.png'%}" alt="Discord">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!--Java Script Boostrap-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js " integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
