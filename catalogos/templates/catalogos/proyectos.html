@@ -1,0 +1,138 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dogge style games</title>
+    <link rel="icon" href="{% static 'catalogos/img/favicon.png'%}" type="image/png" />
+    <!--Boostrap 4.3.1-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="{% static 'catalogos/css/custom-boostrap.css'%} " />
+    <link type="text/css" rel="stylesheet" href="{% static 'catalogos/css/style.css'%}" />
+</head>
+
+
+<body>
+    <!--Cabecera con boostrap-->
+    <!--Quite el bg-light, es un !important que define el fondo como blanco, el narbar-light es el color del texto para el tipo de pagina (light-negro / dark-blanco)-->
+    <nav class="navbar navbar-expand-lg navbar-light  ">
+        <img width="64" src="{% static 'catalogos/img/favicon.png'%}" alt="Logo">
+        <!--Menu nav-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse col-sm-12" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}">Inicio <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'proyectos' %}">Proyectos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'estadisticas' %}">Estadisticas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'fom_proyectos' %}">Registrar proyectos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'qsomos' %}">Quienes Somos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'faq' %}">FAQ</a>
+                </li>
+            </ul>
+            <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+        </div>
+        <!--Boton de iniciar sesion-->
+        {% if request.user.is_authenticated %}
+            <a class=" btn btn-outline-success nav-link " href="{% url 'sigout' %}">Cerrar sesion de {{request.user.username}}</a>
+        {% else %}
+            <!--Boton de iniciar sesion-->
+            <a class=" btn btn-outline-success nav-link " href="{% url 'login' %}">Iniciar sesion</a>
+        {% endif %}
+    </nav>
+
+    <!--El contenido principal-->
+    <main class="main">
+        <section id="contenido-proyectos">
+            <!--Aqui se añadira lo del API-->
+            {% for v in registroJuegos %}
+            <div class='proyecto'>
+                <div class='cont-proyect-izq'>
+                    <h2>{{v.titulo}}</h2>
+                    <img src={{v.caratula.url}} class="img-proyect">
+                </div>
+                <div>
+                    <p class='desc-proyect'> {{v.descripcion}} </p>
+                </div>
+                <div>
+                    <iframe src={{v.widget}} frameborder='0' class='store-proyect'> </iframe>
+                </div>
+                <div>
+                    
+                    {% if user.is_authenticated and user.is_staff == 1 %}
+                        <a class="proyecto_mod" href="{% url 'mod_proyectos' v.idjuego %}">Modificar</a>
+                        <a onclick="return confirmar()" class="proyecto_del" href="{% url 'del_proyectos' v.idjuego %}">Eliminar</a>
+                    {% endif %}
+
+                    {% for e in validacionEst %} 
+                        {% if e.idClasificacion_id == v.idjuego%}
+                            <a class="proyecto_est" href="{% url 'estadistica_individual' v.idjuego %}">Estadistica</a>
+                            <!--<a class="proyecto_est" href="{% url 'detalle_clasificacion' v.idjuego %}">Estadistica</a> -->
+                        {% endif %} 
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+
+        </section>
+
+
+    </main>
+
+    <!--Pie de pagina-->
+    <footer>
+        <div class="contenido ">
+            <div class="foot-izq ">
+                <p>Dogge style Games es un pequeño equipo de desarrollo de videojuegos chile</p>
+                <p>Nuestro objetivo es...</p>
+                <p>Copyright © 2022 (por si tienen)</p>
+            </div>
+
+            <div class="foot-der ">
+                <!--Twitter-->
+                <a href="https://twitter.com ">
+                    <img src="{% static 'catalogos/img/footer_twitter.png'%} " alt="Twitter ">
+                </a>
+                <!--Youtube-->
+                <a href="https://youtube.com ">
+                    <img src="{% static 'catalogos/img/footer_youtube.png'%} " alt="Youtube ">
+                </a>
+                <!--Discord-->
+                <a href="https://discord.com ">
+                    <img src="{% static 'catalogos/img/footer_discord.png'%} " alt="Discord ">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!--Java Script Boostrap
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script>
+    -->
+    <!--Jquery ajax-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js " integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=" anonymous " referrerpolicy="no-referrer "></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js " integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 " crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script>
+    <!--Script validaciones-->
+    <script src="{% static 'catalogos/JavaScript/validacionProyectos.js'%} "></script>
+</body>
+
+</html>
