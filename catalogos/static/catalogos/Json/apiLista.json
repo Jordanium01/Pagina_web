@@ -1,0 +1,32 @@
+{
+    "categories": [{
+            "idGame": "0",
+            "strTittle": "Hollow Knight",
+            "strGameThumbnail": "/static/catalogos/img/proyect_hollowCover.jpeg",
+            "strGameDescription": "Bajo la piel del misterioso Hollow Knight, los jugadores se embarcan en una aventura a través de las profundidades de Hallownest, un vasto y antiguo reino con zonas interconectadas que se encuentra enterrado bajo la tierra. Pese a permanecer en ruinas debido a una catástrofe que ya muy pocos recuerdan, exploradores y ladrones aún adquieren el coraje necesario para atravesar sus oscuros caminos, sus cavernas y torres, en busca de riquezas y maravillas.",
+            "strGameStore": "https://jordanium01.github.io/widget_hollowKnight.html"
+
+        },
+        {
+            "idGame": "1",
+            "strTittle": "Dark Souls Remastered",
+            "strGameThumbnail": "/static/catalogos/img/proyect_DarkSoulsCover.png",
+            "strGameDescription": "Dark Souls tiene lugar en el reino ficticio de Lordran. Los jugadores toman el papel de un personaje humano no-muerto que ha sido elegido para realizar un peregrinaje para descubrir el destino de los no muertos.",
+            "strGameStore": "https://jordanium01.github.io/widget_DarkSouls.html"
+        },
+        {
+            "idGame": "2",
+            "strTittle": "LUMINES REMASTERED",
+            "strGameThumbnail": "/static/catalogos/img/proyect_LuminesCover.jpg",
+            "strGameDescription": "¡El juego de puzles con mejores críticas producido por el famoso diseñador Tetsuya Mizuguchi llega a PC!",
+            "strGameStore": "https://jordanium01.github.io/widget_Lumines.html"
+        },
+        {
+            "idGame": "3",
+            "strTittle": "Sonic Mania",
+            "strGameThumbnail": "/static/catalogos/img/proyect_SonicCover.jpg",
+            "strGameDescription": "Sonic Mania es una nueva aventura de Sonic, Tails y Knuckles con Jefes finales únicos, gloriosos escenarios en 2D y el clásico modo de juego de la saga.",
+            "strGameStore": "https://jordanium01.github.io/widget_sonic.html"
+        }
+    ]
+}
