@@ -24,18 +24,15 @@ def login_api(request):
 		#obj lo declaro yo
 		obj_user = User.objects.get(email = v_username)
 	except User.DoesNotExist:
-        #return Response("Usuario invalido" +  "/" + str(v_username))
 		return render(request, 'usuario/login.html')
 
 	pass_valido = check_password(v_password, obj_user.password)
 
 	if not pass_valido:
-        #return Response("Password incorrecta")
 		return render(request, 'usuario/login.html')
 	
-	token, created = Token.objects.get_or_create(user=obj_user)
+	Token.objects.get_or_create(user=obj_user)
 	login(request, obj_user)
-	#return render(request,'catalogos/index.html') #Response(token.key)
 	return redirect('index')
 	
 def logout_api(request):
