@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import Juego
-from .forms import proyectoFormulario
+from .models import Juego, Clasificacion
+from .forms import proyectoFormulario, estadisticasFormulario, registroestadisticas
+import datetime
 
 #crear clase para el objeto
 '''class Persona:
@@ -31,15 +32,74 @@ def regis(request):
 def proyects(request):
 		#esto hace un SELECT * FROM nombreTabla, y lo ingresa a la variable 
 		ListaJuegos = Juego.objects.all()
+		ListaEstadisticas = Clasificacion.objects.all()
 
 		#aqui se ponen todos los datos a rescatar
 		juegos = {
-			'registroJuegos': ListaJuegos
+			'registroJuegos': ListaJuegos,
+			'validacionEst': ListaEstadisticas
+
 		}
 		return render(request,'catalogos/proyectos.html',juegos)
 
-#def form_proyects(request):
-	#return render(request,'catalogos/registro_proyecto.html')
+def estadisticas(request):
+		clasificaciones = Clasificacion.objects.all()
+		datos = {
+			'form_estadistica':clasificaciones
+		}
+		return render(request,'catalogos/proyectos_estadistica.html', datos)
+
+def estadistica_individual(request,id):
+		clasificacion = Clasificacion.objects.filter(idClasificacion_id=id)
+		datos = {
+			'registroEstadistica':clasificacion
+		}
+		return render(request,'catalogos/estadistica_individual.html', datos)
+
+def form_statis(request):
+	#Mostrar el formulario del form al html
+	datos = {
+		'estadisticas_formulario':registroestadisticas()
+	}
+	#guardar los datos del formulario
+	if (request.method == 'POST'):
+		#rescatar la informacion
+		varFormulario = registroestadisticas(request.POST,request.FILES)# + fecha
+		if varFormulario.is_valid():
+			varFormulario.save() #insert a la base de datos
+			datos['mensaje'] = 'Estadistica ingresada'#mensaje de existo
+		else:
+			#mensaje de error
+			datos['mensaje'] = 'Error al guardar'
+	return render(request,'catalogos/registro_estadistica.html',datos)
+
+def mod_statis(request, id):
+	ListaEstadistica = Clasificacion.objects.get(idClasificacion_id=id)#Select * from tabla where idjuego=id
+
+	#aqui se ponen todos los datos a rescatar
+	datos = {
+		'mod_estadistica': estadisticasFormulario(instance=ListaEstadistica)
+	}
+
+	if (request.method == 'POST'):
+		formulario = estadisticasFormulario(request.POST,request.FILES, instance=ListaEstadistica)
+		if formulario.is_valid():
+			formulario.save()
+			#actualizar la fecha de actualizacion de la tabla
+			Clasificacion.objects.filter(idClasificacion_id=id).update(fecha = datetime.datetime.now().date() )
+
+			datos['mensaje'] = 'Estadistica modificada'#mensaje de existo
+			return redirect(to='estadisticas')
+		else:
+			datos['mensaje'] = 'Error al modificar'#mensaje de existo
+	return render(request,'catalogos/modificacion_estadistica.html',datos)
+
+def del_statis(request, id):
+	ListaEstadistica = Clasificacion.objects.get(idClasificacion_id=id)#Select * from tabla where idjuego=id
+	ListaEstadistica.delete()
+
+	return redirect(to='estadisticas')
+
 def form_proyects(request):
 	#Mostrar el formulario del form al html
 	datos = {

@@ -30,16 +30,34 @@ class Juego(models.Model):
     def __str__(self):
         return str(self.titulo)
     
-class Clasificacion(models.Model):
-    #idClasificacion = models.AutoField(primary_key=True, verbose_name='Id')
-    #idClasificacion = models.ForeignKey(Juego, on_delete=models.CASCADE, primary_key=True, verbose_name='Id')
-    idClasificacion = models.OneToOneField(Juego,  on_delete=models.CASCADE , primary_key=True ,unique=True, verbose_name='id')
-    #juego = models.ForeignKey(Juego, on_delete=models.CASCADE) #union a "Juego"
+class Paises(models.Model):
+    idPais = models.AutoField(primary_key=True, verbose_name='Id')
     pais = models.CharField(max_length=50, verbose_name='Pais')
-    promedio = models.IntegerField(verbose_name='Promedio jugadores:')
-    fecha = models.DateField(verbose_name='Updates:')
-    recaudado = models.IntegerField(verbose_name='Dinero recaudado:')
-    
 
     def __str__(self):
+        return str(self.pais)
+
+class Clasificacion(models.Model):
+    idClasificacion = models.OneToOneField(Juego,  on_delete=models.CASCADE , primary_key=True ,unique=True, verbose_name='id')
+    #pais = models.CharField(max_length=50, verbose_name='Pais')
+    pais = models.OneToOneField(Paises,  on_delete=models.CASCADE ,unique=True, verbose_name='Pais:')
+    promedio = models.IntegerField(verbose_name='Promedio jugadores:')
+    fecha = models.DateField(auto_now_add=True, verbose_name='Fecha de actualizacion:')
+    recaudado = models.IntegerField(verbose_name='Dinero recaudado:')
+    
+    def __str__(self):
         return str(self.idClasificacion)
+
+
+
+class Usuario(models.Model):
+    correo = models.CharField(max_length=50, primary_key=True, verbose_name='Correo')
+    pnombre = models.CharField(max_length=100, verbose_name='PNombre')
+    snombre = models.CharField(max_length=100, verbose_name='SNombre')
+    apaterno = models.CharField(max_length=100, verbose_name='APaterno')
+    amaterno = models.CharField(max_length=100, verbose_name='AMaterno')
+    pais = models.CharField(max_length=50, verbose_name='Pais')
+    clave = models.CharField(max_length=16, verbose_name='clave')
+
+    def __str__(self):
+        return str(self.correo)

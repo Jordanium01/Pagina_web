@@ -30,10 +30,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'index' %}">Inicio <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item ">
                     <a class="nav-link" href="{% url 'proyectos' %}">Proyectos</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="{% url 'estadisticas' %}">Estadisticas</a>
                 </li>
                 <li class="nav-item">
@@ -63,35 +63,39 @@
     <!--El contenido principal-->
     <main class="main">
         <section id="contenido-proyectos">
-            <!--Aqui se añadira lo del API-->
-            {% for v in registroJuegos %}
-            <div class='proyecto'>
-                <div class='cont-proyect-izq'>
-                    <h2>{{v.titulo}}</h2>
-                    <img src={{v.caratula.url}} class="img-proyect">
-                </div>
-                <div>
-                    <p class='desc-proyect'> {{v.descripcion}} </p>
-                </div>
-                <div>
-                    <iframe src={{v.widget}} frameborder='0' class='store-proyect'> </iframe>
-                </div>
-                <div>
-                    
+            {% csrf_token %}
+
+            
+            {% if user.is_authenticated and user.is_staff == 1 %}
+            <a class="proyecto_est" href="{% url 'form_estadistica' %}">Agregar</a>
+            {%endif%}
+            <table border="1" class="table table-bordered table-dark">
+                <tr>
+                    <td>Titulo</td>
+                    <td>Pais con mas jugadores</td>
+                    <td>Promedio de jugadores</td>
+                    <td>Fecha actualizacion</td>
+                    <td>Recaudacion global</td>
+                </tr>
+                {% for est in form_estadistica %}
+                <tr>
+                    <td>{{est.idClasificacion}}</td>
+                    <td>{{est.pais}}</td>
+                    <td>{{est.promedio}}</td>
+                    <td>{{est.fecha}}</td>
+                    <td>{{est.recaudado}}</td> 
                     {% if user.is_authenticated and user.is_staff == 1 %}
-                        <a class="proyecto_mod" href="{% url 'mod_proyectos' v.idjuego %}">Modificar</a>
-                        <a onclick="return confirmar()" class="proyecto_del" href="{% url 'del_proyectos' v.idjuego %}">Eliminar</a>
+                    <td>
+                        <a class="proyecto_mod" href="{% url 'mod_estadisticas' est.idClasificacion_id %}">Modificar</a>
+                        <a onclick="return confirmar()" class="proyecto_del" href="{% url 'del_estadistica' est.idClasificacion_id %}">Eliminar</a>
+                    </td>
                     {% endif %}
 
-                    {% for e in validacionEst %} 
-                        {% if e.idClasificacion_id == v.idjuego%}
-                            <a class="proyecto_est" href="{% url 'estadistica_individual' v.idjuego %}">Estadistica</a>
-                            <!--<a class="proyecto_est" href="{% url 'detalle_clasificacion' v.idjuego %}">Estadistica</a> -->
-                        {% endif %} 
-                    {% endfor %}
-                </div>
-            </div>
-            {% endfor %}
+
+
+                </tr>
+                {% endfor %}
+            </table>
 
         </section>
 

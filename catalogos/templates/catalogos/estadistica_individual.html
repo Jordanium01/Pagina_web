@@ -30,7 +30,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'index' %}">Inicio <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="{% url 'proyectos' %}">Proyectos</a>
                 </li>
                 <li class="nav-item">
@@ -63,34 +63,38 @@
     <!--El contenido principal-->
     <main class="main">
         <section id="contenido-proyectos">
-            <!--Aqui se añadira lo del API-->
-            {% for v in registroJuegos %}
-            <div class='proyecto'>
-                <div class='cont-proyect-izq'>
-                    <h2>{{v.titulo}}</h2>
-                    <img src={{v.caratula.url}} class="img-proyect">
-                </div>
-                <div>
-                    <p class='desc-proyect'> {{v.descripcion}} </p>
-                </div>
-                <div>
-                    <iframe src={{v.widget}} frameborder='0' class='store-proyect'> </iframe>
-                </div>
-                <div>
-                    
-                    {% if user.is_authenticated and user.is_staff == 1 %}
-                        <a class="proyecto_mod" href="{% url 'mod_proyectos' v.idjuego %}">Modificar</a>
-                        <a onclick="return confirmar()" class="proyecto_del" href="{% url 'del_proyectos' v.idjuego %}">Eliminar</a>
-                    {% endif %}
+            {% for v in registroEstadistica %}
+            <!--Tabla con boostrap-->
+                <table class="table table-bordered table-dark">
+                    <thead>
+                    <tr>
+                        <td colspan="2" class="text-center">{{v.idClasificacion}}</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Pais con mas jugadores:</td>
+                        <td>{{v.pais}}</td>
+                    </tr>
+                    <tr>
+                        <td>Promedio jugadores:</td>
+                        <td>{{v.promedio}}</td>
+                    </tr>
+                    <tr>
+                        <td>Dinero recaudado:</td>
+                        <td>${{v.recaudado}} CLP</td>
+                    </tr>
+                    <tr>
+                        <td>Fecha de actualizacion:</td>
+                        <td>{{v.fecha}}</td>
+                    </tr>
+                    </tbody>
+              </table>
 
-                    {% for e in validacionEst %} 
-                        {% if e.idClasificacion_id == v.idjuego%}
-                            <a class="proyecto_est" href="{% url 'estadistica_individual' v.idjuego %}">Estadistica</a>
-                            <!--<a class="proyecto_est" href="{% url 'detalle_clasificacion' v.idjuego %}">Estadistica</a> -->
-                        {% endif %} 
-                    {% endfor %}
-                </div>
-            </div>
+              {% if user.is_authenticated and user.is_staff == 1 %}
+                    <a class="proyecto_mod" href="{% url 'mod_estadisticas' v.idClasificacion_id %}">Modificar</a>
+                    <a onclick="return confirmar()" class="proyecto_del" href="{% url 'del_proyectos' v.idClasificacion_id %}">Eliminar</a>
+                {% endif %}
             {% endfor %}
 
         </section>

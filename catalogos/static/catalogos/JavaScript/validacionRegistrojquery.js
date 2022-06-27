@@ -6,18 +6,18 @@ $(document).ready(() => {
     var CheckPassword = false;
 
     $("#form_email").blur(function(){
-        CheckEmail = verifyEmail("#form_email");
+        CheckEmail = verifyEmail("#id_email");
      });
      
 
     $("#form_password").blur(function(){
-        CheckPassword = verifyPassword("#form_password");
+        CheckPassword = verifyPassword("#id_password1");
     });
 
     //Validar Cuando se envie el formulario
     $("#form_login").submit(function() {
-        CheckEmail = verifyEmail("#form_email");
-        CheckPassword = verifyPassword("#form_password");
+        CheckEmail = verifyEmail("#id_email");
+        CheckPassword = verifyPassword("#id_password1");
 
         if (CheckEmail == false || CheckPassword == false) {
             //Evitar que el envio se realice

@@ -63,7 +63,3 @@ function setSuccesFor(input) {
     const formControl = input.parentElement;
     formControl.className = 'form_control success';
 }
-
-function setSuccesFasdor() {
-
-}
