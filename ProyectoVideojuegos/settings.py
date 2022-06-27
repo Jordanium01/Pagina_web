@@ -44,12 +44,36 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'django.contrib.sites',
     'oauth_app',
+    #allauth
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-    'core',
 ]
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+#cosas de google
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
+
+SOCIALACCOUNT_LOGIN_ON_GET=True
+SITE_ID = 3#ir subiendo si no funciona
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+#############
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -64,11 +88,10 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'ProyectoVideojuegos.urls'
 
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [BASE_DIR / 'templates'], #cambiado para lo de google
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -89,16 +112,9 @@ WSGI_APPLICATION = 'ProyectoVideojuegos.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.oracle',
-        'NAME': '127.0.0.1:8000/orcl',
-        'USER': 'HOLAhola',
-        'PASSWORD': 'HOLAcomoestas2022',
-        'TEST': {
-            'USER': 'default_test',
-            'TBLSPACE': 'default_test_tbls',
-            'TBLSPACE_TMP': 'default_test_tbls_tmp',
-        },
-    },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 # Password validation
@@ -123,7 +139,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-ec'
 
 TIME_ZONE = 'UTC'
 
@@ -147,23 +163,3 @@ REST_FRAMEWORK = {
 		'rest_framework.authentication.TokenAuthentication',
 	]
 }
-
-AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend'
-]
-SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        'SCOPE': [
-            'profile',
-            'email',
-        ],
-        'AUTH_PARAMS': {
-            'access_type': 'online',
-        }
-    }
-}
-SITE_ID = 2
-
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
