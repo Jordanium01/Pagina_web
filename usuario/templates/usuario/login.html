@@ -24,7 +24,7 @@
     <!--Cabecera con boostrap-->
     <!--Quite el bg-light, es un !important que define el fondo como blanco, el narbar-light es el color del texto para el tipo de pagina (light-negro / dark-blanco)-->
     <!---->
-    <nav class="navbar navbar-expand-lg navbar-light  ">
+    <nav class="navbar navbar-expand-xl navbar-light  ">
         <img width="64" src="{% static 'catalogos/img/favicon.png'%}" alt="Logo">
         <!--Menu nav-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,7 +39,10 @@
                     <a class="nav-link" href="{% url 'proyectos' %}">Proyectos </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'fom_proyectos' %}">Registrar proyectos</a>
+                    <a class="nav-link" href="{% url 'estadisticas' %}">Estadisticas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Historial' %}">Historial de compras</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'contacto' %}">Contacto <span class="sr-only">(current)</span></a>
@@ -93,7 +96,7 @@
                 
                 <a href="{% provider_login_url 'google' %}">
                 <button id="btnGoogle" type="button">
-                        <img src="{% static 'catalogos/img/google_icon.png'%}" alt="Google Icon" width="30"> Iniciar sesion con google
+                        <img src="{% static 'catalogos/img/google_icon.png'%}" alt="Google Icon" > Iniciar sesion con google
                     </button>
                 </a>
             </form>

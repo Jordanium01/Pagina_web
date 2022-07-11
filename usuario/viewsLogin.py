@@ -11,7 +11,8 @@ from django.contrib.auth.hashers import check_password
 from rest_framework.authtoken.models import Token
 from django.contrib.auth import authenticate, login,logout
 from django.contrib.auth.forms import UserCreationForm
-from .forms import SignUpForm
+from .forms import SignUpForm, ExtraInformation
+from .models import UserExtraInfo
 
 #importar modelo
 #from catalogos.models import Usuario
@@ -44,13 +45,23 @@ def logout_api(request):
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
+        extra = ExtraInformation(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
+
+            #Registrar los datos extra del usuario
+            suscribe_box = extra['is_suscribe'].value()
+            direccion_input = extra['direccion'].value()
+
+            print(suscribe_box)
+            UserExtraInfo.objects.create(id_id=request.user.id,is_suscribe=suscribe_box, direccion=direccion_input)
+
             return redirect('index')
     else:
         form = SignUpForm()
-    return render(request, 'usuario/registro.html', {'form': form})
+        extra = ExtraInformation()
+    return render(request, 'usuario/registro.html', {'form_pag': form,'extra_pag': extra})
