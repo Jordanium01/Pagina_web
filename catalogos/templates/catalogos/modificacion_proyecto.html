@@ -21,7 +21,7 @@
 <body>
     <!--Cabecera con boostrap-->
     <!--Quite el bg-light, es un !important que define el fondo como blanco, el narbar-light es el color del texto para el tipo de pagina (light-negro / dark-blanco)-->
-    <nav class="navbar navbar-expand-lg navbar-light  ">
+    <nav class="navbar navbar-expand-xl navbar-light  ">
         <img width="64" src="{% static 'catalogos/img/favicon.png'%}" alt="Logo">
         <!--Menu nav-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,7 +39,7 @@
                     <a class="nav-link" href="{% url 'estadisticas' %}">Estadisticas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'fom_proyectos' %}">Registrar proyectos</a>
+                    <a class="nav-link" href="{% url 'Historial' %}">Historial de compras</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
@@ -53,12 +53,13 @@
             </ul>
             <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
         </div>
-        <!--Boton de iniciar sesion-->
+        <!--Boton del carrito-->
         {% if request.user.is_authenticated %}
-            <a class=" btn btn-outline-success nav-link " href="{% url 'sigout' %}">Cerrar sesion de {{request.user.username}}</a>
+            <a class="btn btn-outline-success nav-link" id="btnCarrito" href="{% url 'Tienda' %}">Carrito</a>
+            <a class=" btn btn-outline-success nav-link btnSigin" href="{% url 'sigout' %}"> Cerrar sesion <span>de {{request.user.username}}</span> </a>
         {% else %}
             <!--Boton de iniciar sesion-->
-            <a class=" btn btn-outline-success nav-link " href="{% url 'login' %}">Iniciar sesion</a>
+            <a class=" btn btn-outline-success nav-link btnSigin" href="{% url 'login' %}">Iniciar sesion</a>
         {% endif %}
     </nav>
 
@@ -69,19 +70,52 @@
             <form id="form_contacto" method="POST" class="form_contacto" enctype="multipart/form-data">
                 <!--Instruccion de seguidad-->
                 {% csrf_token %}
-
+                
+                {% if mensaje%}
+                <div class="alert alert-danger text-center" role="alert">
+                    {{mensaje}}
+                    <br>
+                </div>
+                {% endif %}
 
                 <h1>Modificar proyecto</h1>
                 <div class="form_proyecto">
-                    {{mod_formulario.as_table}}
+                    <!-- {{mod_formulario.as_table}} -->
+                    {{mod_formulario.titulo.label_tag}}
+                    {{mod_formulario.titulo}}
+
+                    {{mod_formulario.descripcion.label_tag}}
+                    {{mod_formulario.descripcion}}
+
+                    {{mod_formulario.caratula.label_tag}}
+                    {% if mod_formulario.caratula%}
+                    <div>
+                        <img src="/{{mod_formulario.caratula.value}}" class="img_form_proyect" >
+                    </div>
+                    <br>
+                    {% endif %}
+                    
+                    <div class="text-center">
+                        {{mod_formulario.caratula}}
+                    </div>
+
+                    {{mod_formulario.annoSalida.label_tag}}
+                    {{mod_formulario.annoSalida}}
+
+                    {{mod_formulario.precio.label_tag}}
+                    {{mod_formulario.precio}}
+
+                    {{mod_formulario.stock.label_tag}}
+                    {{mod_formulario.stock}}
+
+                    {{mod_formulario.genero.label_tag}}
+                    {{mod_formulario.genero}}
+
+                    {{mod_formulario.distribuidora.label_tag}}
+                    {{mod_formulario.distribuidora}}
                 </div>
 
                 <button id="form_proyect_button" type="submit" value="modificar">Modificar</button>
-
-                <div id="form_proyect_alert" role="alert">
-                    {{mensaje}}
-                </div>
-
             </form>
         </div>
     </main>

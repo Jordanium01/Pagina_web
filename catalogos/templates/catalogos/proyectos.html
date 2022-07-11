@@ -13,13 +13,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="{% static 'catalogos/css/custom-boostrap.css'%} " />
     <link type="text/css" rel="stylesheet" href="{% static 'catalogos/css/style.css'%}" />
+
+    <!--Boton de alerta con decoracion-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 
 <body>
     <!--Cabecera con boostrap-->
     <!--Quite el bg-light, es un !important que define el fondo como blanco, el narbar-light es el color del texto para el tipo de pagina (light-negro / dark-blanco)-->
-    <nav class="navbar navbar-expand-lg navbar-light  ">
+    <nav class="navbar navbar-expand-xl navbar-light  ">
         <img width="64" src="{% static 'catalogos/img/favicon.png'%}" alt="Logo">
         <!--Menu nav-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,7 +40,7 @@
                     <a class="nav-link" href="{% url 'estadisticas' %}">Estadisticas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'fom_proyectos' %}">Registrar proyectos</a>
+                    <a class="nav-link" href="{% url 'Historial' %}">Historial de compras</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
@@ -51,18 +54,26 @@
             </ul>
             <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
         </div>
+        
+        
+        
         <!--Boton de iniciar sesion-->
         {% if request.user.is_authenticated %}
-            <a class=" btn btn-outline-success nav-link " href="{% url 'sigout' %}">Cerrar sesion de {{request.user.username}}</a>
+            <a class="btn btn-outline-success nav-link" id="btnCarrito" href="{% url 'Tienda' %}">Carrito</a>
+            <a class=" btn btn-outline-success nav-link btnSigin" href="{% url 'sigout' %}"> Cerrar sesion <span>de {{request.user.username}}</span> </a>
         {% else %}
             <!--Boton de iniciar sesion-->
-            <a class=" btn btn-outline-success nav-link " href="{% url 'login' %}">Iniciar sesion</a>
+            <a class=" btn btn-outline-success nav-link btnSigin" href="{% url 'login' %}">Iniciar sesion</a>
         {% endif %}
     </nav>
 
     <!--El contenido principal-->
     <main class="main">
+        
         <section id="contenido-proyectos">
+            {% if request.user.is_authenticated %}
+                <a class="proyecto_reg" href="{% url 'fom_proyectos' %}">Registrar proyecto</a>
+            {% endif %}
             <!--Aqui se añadira lo del API-->
             {% for v in registroJuegos %}
             <div class='proyecto'>
@@ -74,19 +85,33 @@
                     <p class='desc-proyect'> {{v.descripcion}} </p>
                 </div>
                 <div>
-                    <iframe src={{v.widget}} frameborder='0' class='store-proyect'> </iframe>
+
+                    <!-- <iframe src={{v.widget}} frameborder='0' class='store-proyect'> -->
+                        
+                    {% if request.user.is_authenticated %}
+                        {% if v.stock > 0 %}
+                            <a class="shop_button" href="{% url 'Add' v.idjuego%}">Agregar al carrito - ${{v.precio}} clp</a>
+                        {% else %}
+                            <a class="shop_button_none">Producto agotado</a>
+                        {% endif %}
+                    {% else %}
+                    <a class="shop_button_none">Compra solo disponible para usuarios registrados</a>
+                    {% endif %}
+                    
                 </div>
                 <div>
                     
                     {% if user.is_authenticated and user.is_staff == 1 %}
                         <a class="proyecto_mod" href="{% url 'mod_proyectos' v.idjuego %}">Modificar</a>
-                        <a onclick="return confirmar()" class="proyecto_del" href="{% url 'del_proyectos' v.idjuego %}">Eliminar</a>
+                        <!-- <a onclick="return confirmar()" class="proyecto_del" href="{% url 'del_proyectos' v.idjuego %}">Eliminar</a> -->
+                        <a onclick="return DeleteGame('{{v.idjuego}}')" class="proyecto_del" href="">Eliminar</a>
+                        
+                        <!-- {% url 'del_proyectos' v.idjuego %} -->
                     {% endif %}
 
                     {% for e in validacionEst %} 
                         {% if e.idClasificacion_id == v.idjuego%}
                             <a class="proyecto_est" href="{% url 'estadistica_individual' v.idjuego %}">Estadistica</a>
-                            <!--<a class="proyecto_est" href="{% url 'detalle_clasificacion' v.idjuego %}">Estadistica</a> -->
                         {% endif %} 
                     {% endfor %}
                 </div>

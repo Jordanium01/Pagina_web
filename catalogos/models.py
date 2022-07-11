@@ -1,4 +1,7 @@
+from pyexpat import model
 from django.db import models
+import datetime
+
 #Genero juego
 class GeneroJuego(models.Model): #tablas
     idGenero = models.IntegerField(primary_key=True,verbose_name='Id') #columnas
@@ -23,12 +26,28 @@ class Juego(models.Model):
     descripcion = models.TextField(max_length=500, verbose_name='Descripcion:')
     caratula = models.ImageField(upload_to='catalogos/static/catalogos/img', verbose_name='Caratula:')
     annoSalida = models.IntegerField(verbose_name='Año salida:') #anno salida
-    widget = models.CharField(max_length=100, verbose_name='Iframe:')#widget de steam que actualiza los precios
+    widget = models.CharField(max_length=100, default='' ,verbose_name='Iframe:')#widget de steam que actualiza los precios
     genero = models.ForeignKey(GeneroJuego, on_delete=models.CASCADE) #union a "GeneroJuego"
     distribuidora = models.ForeignKey(DistribuidoraJuego, on_delete=models.CASCADE) #union a "Distribuidora" 
+    precio = models.IntegerField(verbose_name='precio:')
+    stock = models.IntegerField(verbose_name='Stock:')
 
     def __str__(self):
-        return str(self.titulo)
+        #return f'{self.titulo} -> {self.precio}'
+        return self.titulo
+
+class Compras(models.Model):
+    idcompra = models.IntegerField(primary_key=True, verbose_name='id:')
+    comprador = models.CharField(max_length=100, verbose_name='Comprador:') #nombre del comprador
+    estado = models.IntegerField(verbose_name='Estado de la compra:')
+    total = models.IntegerField(verbose_name='Precio de la compra:')
+    articulos = models.CharField(max_length=100, verbose_name='compras:') #nombre del comprador
+    fechaCompra = models.DateTimeField(verbose_name='fecha de compra:', null=True)
+    estimacionllegada = models.DateTimeField(verbose_name='fecha de estimacion de llegada:', null=True)
+    fechallegada = models.DateTimeField(verbose_name='fecha de llegada:', null=True)
+
+    def __str__(self):
+        return str(self.idcompra)
     
 class Paises(models.Model):
     idPais = models.AutoField(primary_key=True, verbose_name='Id')
@@ -49,7 +68,7 @@ class Clasificacion(models.Model):
         return str(self.idClasificacion)
 
 
-
+#No se ocupa, me da miedo borrarlo
 class Usuario(models.Model):
     correo = models.CharField(max_length=50, primary_key=True, verbose_name='Correo')
     pnombre = models.CharField(max_length=100, verbose_name='PNombre')

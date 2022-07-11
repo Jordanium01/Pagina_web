@@ -12,11 +12,49 @@
     right: 0;
     box-shadow: 0px 2px rgba(0, 0, 0, 0.65);
 }
-
 .navbar-light .btn {
-    position: fixed;
-    margin-right: 10px;
+    position: absolute;
+    margin-right: 6.5rem;
     right: 0;
+
+    
+}
+
+#btnCarrito{
+    margin-right: 10px;
+}
+
+
+/*Responsividad de la tabla*/
+.table-responsive-custom {
+    /*display: block;*/
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+@media only screen and (max-width: 500px) {
+    .table_responsive_small{
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .table_responsive_big{
+        display: block;
+    }
+}
+
+
+/*Boton de iniciar sesion*/
+@media only screen and (max-width: 600px) {
+    .btnSigin {
+        max-width: 130px;
+    }
+
+    .btnSigin span{
+        display: none;
+    }
 }
 
 
@@ -66,13 +104,17 @@
     box-shadow: 0 0 0 0.2rem var(--navbar-hover-trasnparent);
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1200px) {
     .navbar-light .btn {
         position: absolute;
-        margin-right: 6rem;
+        margin-right: 12.5rem;
         right: 0;
         top: 0;
         margin-top: 1.1rem;
+    }
+
+    #btnCarrito{
+        margin-right: 6rem;
     }
     /*contenido dentro de la hamburguesa*/
     .navbar-collapse .nav-link {

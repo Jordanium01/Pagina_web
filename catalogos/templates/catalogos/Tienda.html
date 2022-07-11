@@ -11,11 +11,8 @@
     <link rel="icon" href="{% static 'catalogos/img/favicon.png'%}" type="image/png" />
     <!--Boostrap 4.3.1-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!--CSS-->
     <link type="text/css" rel="stylesheet" href="{% static 'catalogos/css/custom-boostrap.css'%} " />
     <link type="text/css" rel="stylesheet" href="{% static 'catalogos/css/style.css'%}" />
-    <!--Fuentes-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" />
 </head>
 
 <body>
@@ -51,9 +48,9 @@
                     <a class="nav-link" href="{% url 'faq' %}">FAQ</a>
                 </li>
             </ul>
-            <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
         </div>
-        <!--Boton del carrito-->
+
+        
         {% if request.user.is_authenticated %}
             <a class="btn btn-outline-success nav-link" id="btnCarrito" href="{% url 'Tienda' %}">Carrito</a>
             <a class=" btn btn-outline-success nav-link btnSigin" href="{% url 'sigout' %}"> Cerrar sesion <span>de {{request.user.username}}</span> </a>
@@ -61,36 +58,87 @@
             <!--Boton de iniciar sesion-->
             <a class=" btn btn-outline-success nav-link btnSigin" href="{% url 'login' %}">Iniciar sesion</a>
         {% endif %}
+
+        
     </nav>
+
 
     <!--El contenido principal-->
     <main class="main">
         <div class="contenido">
 
-            <!--EL get va a la base de datos, el POST no-->
-            <form id="form_contacto" method="POST" class="form_contacto" enctype="multipart/form-data">
-                {% csrf_token %}
-                <!--Instruccion de seguidad-->
-                {% if mensaje%}
-                <div class="alert alert-danger text-center" role="alert">
-                    {{mensaje}}
-                    <br>
-                </div>
-                {% endif %}
-                
-                <h1> Registrar Estadistica </h1>
-                <div class="form_proyecto">
-                    {{estadisticas_formulario.as_table}}
-                </div>
+            {% if request.session.carrito.items %}
+            <table class="table table-hover table-dark">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Cantidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for key, value in request.session.carrito.items %}
+                        <tr>
+                            <td><img src=/{{value.caratula}} class="img-shop"></td>
+                            <td class="name-shop">{{value.nombre}}</td>
+                            <td>${{value.acumulado}}</td>
+                            <td>Cantidad de compra: {{value.cantidad}} / Stock en bodega: {{value.stock}}
 
-                <button id="form_proyect_button" type="submit" value="Enviar">Enviar</button>
-                
+                                {% if  value.cantidad < value.stock %}
+                                    <a href="{% url 'Add' value.producto_id %}">
+                                        <button id="btnAdd" type="button">
+                                            <img src="{% static 'catalogos/img/add-icon.jpg'%}" alt="Add icon" >
+                                        </button>
+                                    </a>
+                                {% endif %}
 
-                <!--<input id="form_proyect_button" type="submit" value="Enviar" > -->
-                <!--class="btn btn-outline-success nav-link"-->
+                                <a href="{% url 'Sub' value.producto_id %}">
+                                    <button id="btnSub" type="">
+                                        <img src="{% static 'catalogos/img/minus-icon.png'%}" alt="Sub icon" >
+                                    </button>
+                                </a>
 
+                                <a href="{% url 'Del' value.producto_id %}">
+                                    <button id="btnSub" type="">
+                                        <img src="{% static 'catalogos/img/delete-icon.png'%}" alt="Del icon" >
+                                    </button>
+                                </a>
+                            </td>
 
-            </form>
+                        </tr>
+                    {% endfor %}
+                    
+                    <tr>
+                        <td colspan="2">Total Estimado:</td>
+                        <td></td>
+                        
+                        <td colspan="2">$ {{total_carrito}}  
+                            {% if ext_usuario.is_suscribe %}
+                                (Cuenta con un 5% de descuento)
+                            {% endif %}
+
+                                
+                        </td>
+                        
+                    </tr>
+                </tbody>
+
+            </table>
+
+            <div>
+                    <a href="{% url 'CLS' %}">
+                        <button id="btnSub" type="">
+                            <img src="{% static 'catalogos/img/trash-icon.png'%}" alt="Del icon" >
+                        </button>
+                    </a>
+
+                    <a class="buy_button" href="{% url 'buy' %}">Comprar</a>
+
+            <div>
+            {% else %}
+                <div class="alert alert-danger text-center" role="alert">   Tu carrito esta vacio </div>
+            {% endif %}
         </div>
     </main>
 
@@ -120,13 +168,15 @@
         </div>
     </footer>
 
+
     <!--Java Script Boostrap-->
+    <!--ya no se ocpara jquery normal
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    -->
+    <!--JQuery con AJAX-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js " integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <!--Validacion
-    <script src="{% static 'catalogos/JavaScript/validacionContacto.js'%}"></script>
-    -->
 </body>
 
 </html>
