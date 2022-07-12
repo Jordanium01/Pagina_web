@@ -75,6 +75,7 @@
                         <th scope="col">Nombre</th>
                         <th scope="col">Precio</th>
                         <th scope="col">Cantidad</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -83,8 +84,8 @@
                             <td><img src=/{{value.caratula}} class="img-shop"></td>
                             <td class="name-shop">{{value.nombre}}</td>
                             <td>${{value.acumulado}}</td>
-                            <td>Cantidad de compra: {{value.cantidad}} / Stock en bodega: {{value.stock}}
-
+                            <td>#{{value.cantidad}}</td>
+                            <td>
                                 {% if  value.cantidad < value.stock %}
                                     <a href="{% url 'Add' value.producto_id %}">
                                         <button id="btnAdd" type="button">

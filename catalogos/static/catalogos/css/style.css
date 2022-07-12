@@ -165,6 +165,8 @@ main {
 
 /*----Pagina de proyectos----*/
 
+
+
 #contenido-proyectos {
     width: 80%;
     max-width: 80%;
@@ -225,6 +227,7 @@ main {
     border: 4px solid #691515;
     float: right;
     color: #ffffff;
+    margin-bottom: 2px;
 }
 
 .proyecto_mod {
@@ -264,6 +267,7 @@ main {
     margin-top: 10px;
     padding-top: 20px;
     height: auto;
+    min-height: 480px;
     box-shadow: 0px 1px 8px 0px black;
 }
 
@@ -279,6 +283,11 @@ main {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     line-height: 2.0;
+}
+
+.cont-proyecto_marg_bottom{
+    min-height: 75px;
+    margin-bottom: 2px;
 }
 
 .img-proyect {
@@ -933,6 +942,7 @@ textarea:required:not(:placeholder-shown):invalid {
     margin-left: 47%;
         
 }
+
 
 /*---Cabecera---*/
 

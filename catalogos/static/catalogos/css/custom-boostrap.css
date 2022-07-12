@@ -39,7 +39,7 @@
     }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 915px) {
     .table_responsive_big{
         display: block;
     }

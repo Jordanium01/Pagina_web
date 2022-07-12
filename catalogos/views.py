@@ -198,6 +198,8 @@ def limpiar_carrito(request):
 def restar_stock(cantidad,juegoid):
 	proyecto = Juego.objects.get(idjuego=juegoid)
 	proyecto.stock -= cantidad
+	if (proyecto.stock < 0):
+		proyecto.stock = 0
 	proyecto.save()
 
 def comprar(request):
@@ -209,6 +211,7 @@ def comprar(request):
 			restar_stock(int(value["cantidad"]),int(value["producto_id"]))
 			producto = producto + value["nombre"] + ', '
 			precio_total = precio_total + value["acumulado"]
+
 			
 	try:
 		InformacionUsuario = UserExtraInfo.objects.get(id_id=request.user.id)

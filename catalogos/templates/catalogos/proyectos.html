@@ -71,7 +71,7 @@
     <main class="main">
         
         <section id="contenido-proyectos">
-            {% if request.user.is_authenticated %}
+            {% if request.user.is_authenticated and user.is_staff == 1 %}
                 <a class="proyecto_reg" href="{% url 'fom_proyectos' %}">Registrar proyecto</a>
             {% endif %}
             <!--Aqui se añadira lo del API-->
@@ -99,7 +99,7 @@
                     {% endif %}
                     
                 </div>
-                <div>
+                <div class="cont-proyecto_marg_bottom">
                     
                     {% if user.is_authenticated and user.is_staff == 1 %}
                         <a class="proyecto_mod" href="{% url 'mod_proyectos' v.idjuego %}">Modificar</a>
